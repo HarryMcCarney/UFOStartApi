@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api", "Api\Api.csproj", "{B5B2D59F-46CD-4E77-ACCF-D44F0BCCE2FB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UFOStart.Api", "Api\UFOStart.Api.csproj", "{B5B2D59F-46CD-4E77-ACCF-D44F0BCCE2FB}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{79EDF036-F176-4128-8437-A25C36295FBE}"
 	ProjectSection(SolutionItems) = preProject
@@ -9,6 +9,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{79EDF0
 		.nuget\NuGet.exe = .nuget\NuGet.exe
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UFOStart.Model", "Model\UFOStart.Model.csproj", "{68B9F4F4-CE8C-4937-AFD9-3FC48520A162}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -20,6 +22,10 @@ Global
 		{B5B2D59F-46CD-4E77-ACCF-D44F0BCCE2FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B5B2D59F-46CD-4E77-ACCF-D44F0BCCE2FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B5B2D59F-46CD-4E77-ACCF-D44F0BCCE2FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{68B9F4F4-CE8C-4937-AFD9-3FC48520A162}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{68B9F4F4-CE8C-4937-AFD9-3FC48520A162}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{68B9F4F4-CE8C-4937-AFD9-3FC48520A162}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{68B9F4F4-CE8C-4937-AFD9-3FC48520A162}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

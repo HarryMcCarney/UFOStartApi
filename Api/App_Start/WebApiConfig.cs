@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
 
-namespace Api
+namespace UFOStart.Api
 {
     public static class WebApiConfig
     {
@@ -11,8 +11,9 @@ namespace Api
         {
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
-                routeTemplate: "api/{controller}/{id}",
+                routeTemplate: "web/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
+
             );
         }
     }
