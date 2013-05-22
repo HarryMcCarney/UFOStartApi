@@ -11,7 +11,7 @@ namespace Api.Controllers
        
         public string Index()
         {
-            return "Hello blowfish";
+            return "Hello giraffe";
         }
 
     }
