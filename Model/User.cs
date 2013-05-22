@@ -6,7 +6,7 @@ using Model;
 
 namespace UFOStart.Model
 {
-    [DataContract]
+
     [Serializable]
     public class User
     {
