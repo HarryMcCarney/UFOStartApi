@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api", "Api\Api.csproj", "{B5B2D59F-46CD-4E77-ACCF-D44F0BCCE2FB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MailQueue", "..\MailQueue\MailQueue.csproj", "{AEAEB1F5-C166-4B91-BAA5-E5FDB3422DFF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{79EDF036-F176-4128-8437-A25C36295FBE}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B5B2D59F-46CD-4E77-ACCF-D44F0BCCE2FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5B2D59F-46CD-4E77-ACCF-D44F0BCCE2FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5B2D59F-46CD-4E77-ACCF-D44F0BCCE2FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5B2D59F-46CD-4E77-ACCF-D44F0BCCE2FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AEAEB1F5-C166-4B91-BAA5-E5FDB3422DFF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AEAEB1F5-C166-4B91-BAA5-E5FDB3422DFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AEAEB1F5-C166-4B91-BAA5-E5FDB3422DFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AEAEB1F5-C166-4B91-BAA5-E5FDB3422DFF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
