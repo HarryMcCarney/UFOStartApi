@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>UFOStart.Api</id>
+    <version>$version$</version>
+    <title>Payment</title>
+    <authors>Harry McCarney</authors>
+    <owners>Harry McCarney</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>UFOStart.Api</description>
+    <releaseNotes>UFOStart.Api</releaseNotes>
+    <copyright>Copyright 2013</copyright>
+    <tags>UFOStart.Api</tags>
+  </metadata>
+</package>
