@@ -25,6 +25,7 @@ namespace UFOStart.Api.Controllers
             try
             {
                 result = orm.execObject<Result>(user, user.Profile[0].type == "LI" ? "api.user_linkedin_connect" : "api.user_facebook_connect");
+            
             }
             catch (Exception exp)
             {
