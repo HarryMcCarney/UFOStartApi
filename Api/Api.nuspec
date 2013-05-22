@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package >
   <metadata>
-    <id>BradsUFOStart.Api</id>
+    <id>UFOStart.Api</id>
     <version>$version$</version>
     <title>Auth</title>
     <authors>Harry McCarney</authors>
