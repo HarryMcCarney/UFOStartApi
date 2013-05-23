@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 using System.Xml.Serialization;
 using Model;
-
 namespace UFOStart.Model
 {
 
@@ -20,6 +18,9 @@ namespace UFOStart.Model
         public string token { get; set; }
         [XmlElement]
         public List<Profile> Profile { get; set; }
+
+        [XmlElement]
+        public Company Company { get; set; }
 
     }
 }

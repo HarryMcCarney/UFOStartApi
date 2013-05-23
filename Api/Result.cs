@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Xml.Serialization;
 using DBVC;
+using Model;
 using UFOStart.Model;
 
 namespace UFOStart.Api
@@ -22,6 +23,19 @@ namespace UFOStart.Api
 
         [XmlElement]
         public User User { get; set; }
+
+        [XmlElement]
+        public Template Template { get; set; }
+
+        [XmlElement (ElementName = "Templates")]
+        public List<Template> Templates { get; set; }
+
+
+        [XmlElement(ElementName = "Needs")]
+        public List<Need> Needs { get; set; }
+
+        [XmlElement]
+        public Company Company { get; set; }
 
     }
 }
