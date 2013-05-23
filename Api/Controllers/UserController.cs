@@ -34,6 +34,20 @@ namespace UFOStart.Api.Controllers
             return formattedResult(result);
         }
 
+        public string login(User user)
+        {
+            try
+            {
+                result = orm.execObject<Result>(user, "api.user_email_login");
+
+            }
+            catch (Exception exp)
+            {
+                errorResult(exp);
+            }
+            return formattedResult(result);
+        }
+
         
 
     }
