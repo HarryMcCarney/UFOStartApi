@@ -10,7 +10,8 @@ namespace Model
     {
         [XmlAttribute]
         public string name { get; set; }
-
+        [XmlAttribute]
+        public string key { get; set; }
         [XmlElement]
         public List<Need> Need { get; set; }
     }
