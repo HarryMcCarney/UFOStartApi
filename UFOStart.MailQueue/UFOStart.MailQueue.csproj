@@ -34,8 +34,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="HackandCraft.DBVC">
-      <HintPath>..\packages\HackandCraft.Mail.1.0.76\lib\net45\HackandCraft.DBVC.dll</HintPath>
+    <Reference Include="HackandCraft.Config">
+      <HintPath>..\packages\HackandCraft.Config.1.0.76\lib\net45\HackandCraft.Config.dll</HintPath>
+    </Reference>
+    <Reference Include="HackandCraft.DBVC, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\HackandCraft.Config.1.0.76\lib\net45\HackandCraft.DBVC.dll</HintPath>
     </Reference>
     <Reference Include="HackandCraft.Mail">
       <HintPath>..\packages\HackandCraft.Mail.1.0.76\lib\net45\HackandCraft.Mail.dll</HintPath>
@@ -53,10 +57,14 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="Topshelf">
+      <HintPath>..\packages\TopShelf.3.1.1\lib\net40-full\Topshelf.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QueueRunner.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
