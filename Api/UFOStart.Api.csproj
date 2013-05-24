@@ -125,6 +125,7 @@
   <ItemGroup>
     <Compile Include="Controllers\CompanyController.cs" />
     <Compile Include="Controllers\NeedController.cs" />
+    <Compile Include="Controllers\RoundController.cs" />
     <Compile Include="Controllers\TemplateController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">

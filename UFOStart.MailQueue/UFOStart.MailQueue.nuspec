@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>UFOStart.MailQueue</id>
+    <version>$version$</version>
+    <title>UFOStart.MailQueue</title>
+    <authors>Harry McCarney</authors>
+    <owners>Harry McCarney</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>UFOStart.MailQueue</description>
+    <releaseNotes>UFOStart.MailQueue</releaseNotes>
+    <copyright>Copyright 2013</copyright>
+    <tags>UFOStart.MailQueue</tags>
+  </metadata>
+</package>

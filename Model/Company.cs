@@ -20,6 +20,8 @@ namespace UFOStart.Model
         public List<Template> Templates { get; set; }
         [XmlElement(ElementName = "Rounds")]
         public List<Round> Rounds { get; set; }
+        [XmlElement]
+        public Round Round { get; set; }
     }
 
     

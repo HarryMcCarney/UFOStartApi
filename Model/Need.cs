@@ -7,6 +7,8 @@ namespace Model
     public class Need
     {
         [XmlAttribute]
+        public string id { get; set; }
+        [XmlAttribute]
         public string name { get; set; }
     }
 }
