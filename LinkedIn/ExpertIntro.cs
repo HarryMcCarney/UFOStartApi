@@ -25,7 +25,6 @@ namespace UFOStart.LinkedIn
         {
             var profile = (from x in user.Profile where x.type == "LI" select x).Take(1).ToList()[0];
             accessToken = profile.accessToken;
-            secret = profile.secret;
             need = _need.name;
 
             var contacts = (from x in getContacts().People.Person where x.firstName != "private" select x).ToList();

@@ -22,8 +22,7 @@ namespace Model
         public string email { get; set; }
         [XmlAttribute]
         public string name { get; set; }
-        [XmlAttribute]
-        public string secret { get; set; }
+     
     }
 
    
