@@ -11,7 +11,7 @@ namespace UFOStart.Api
         public static void assignServices(Round round)
         {
             var orm = new Orm();
-            orm.execObject<Result>(round, "api.roud_assign_services");
+            orm.execObject<Result>(round, "api.round_assign_services");
         }
 
 
@@ -22,7 +22,7 @@ namespace UFOStart.Api
 
             foreach (var need in needs)
             {
-       
+                
 
 
             }

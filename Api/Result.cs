@@ -37,5 +37,8 @@ namespace UFOStart.Api
         [XmlElement]
         public Company Company { get; set; }
 
+        [XmlElement]
+        public Round  Round { get; set; }
+
     }
 }
