@@ -62,7 +62,7 @@ namespace UFOStart.LinkedIn
 
         private  PeopleSeach getContacts()
         {
-            var url = string.Format("http://api.linkedin.com/v1/people-search:(people:(id,relation-to-viewer,headline,first-name,last-name,specialties,summary,industry,picture-url),num-results)?keywords={0}&count=25&sort=relevance",need);
+            var url = string.Format("http://api.linkedin.com/v1/people-search:(people:(id,relation-to-viewer,headline,first-name,last-name,specialties,summary,industry,picture-url),num-results)?keywords={0}&count=25&sort=relevance&authToken={1}", need, accessToken);
            var contacts = apiHit(url);
            var xml = new XmlDocument();
            xml.LoadXml(contacts);
@@ -74,7 +74,7 @@ namespace UFOStart.LinkedIn
             if (person.id == "private") return;
             var url =
                 string.Format(
-                    "http://api.linkedin.com/v1/people/id={0}:(id,headline,first-name,last-name,specialties,summary,industry,picture-url,relation-to-viewer:(related-connections))", person.id);
+                    "http://api.linkedin.com/v1/people/id={0}:(id,headline,first-name,last-name,specialties,summary,industry,picture-url,relation-to-viewer:(related-connections))?authToken={1}", person.id, accessToken);
             var contacts = apiHit(url);
             var xml = new XmlDocument();
             xml.LoadXml(contacts);
