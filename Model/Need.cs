@@ -16,6 +16,8 @@ namespace Model
         public bool expert { get; set; }
         [XmlElement]
         public Service Service { get; set; }
+        [XmlElement]
+        public Expert Expert { get; set; }
 
     }
 }

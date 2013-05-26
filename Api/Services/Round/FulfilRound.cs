@@ -30,12 +30,10 @@ namespace UFOStart.Api
             foreach (var need in needs)
             {
                 var expert = new ExpertIntro().getExpert(user, need);
-
-
-
+                need.Expert = expert;
             }
 
-
+            orm.execObject<Result>(round, "api.round_assign_experts");
 
         }
 
