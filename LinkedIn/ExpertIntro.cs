@@ -28,11 +28,11 @@ namespace UFOStart.LinkedIn
             secret = profile.secret;
             need = _need.name;
 
-            var contacts = getContacts();
-            if (contacts.People.Person.Count == 0)
+            var contacts = (from x in getContacts().People.Person where x.firstName != "private" select x).ToList();
+            if (contacts.Count == 0)
                 return null;
-            rankContacts(contacts.People.Person);
-            var bestMatch = (from x in contacts.People.Person orderby x.rating descending select x).Take(1).ToList()[0];
+            rankContacts(contacts);
+            var bestMatch = (from x in contacts orderby x.rating descending select x).Take(1).ToList()[0];
             getIntro(bestMatch);
 
             var expert = new Expert()
@@ -57,7 +57,7 @@ namespace UFOStart.LinkedIn
             {
                 c.rating = -1;
             }
-            contacts[0].rating = 100;
+             contacts[0].rating = 100;
         }
 
 
