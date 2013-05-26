@@ -1,11 +1,35 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Linq;
+using DBVC;
+using Model;
+using UFOStart.Model;
 
-namespace UFOStart.Api.Services.Round
+namespace UFOStart.Api
 {
-    public class FulfilRound
+    public static class FulfilRound
     {
+
+        public static void assignServices(Round round)
+        {
+            var orm = new Orm();
+            orm.execObject<Result>(round, "api.roud_assign_services");
+        }
+
+
+        public static void assignExperts(Round round)
+        {
+            var orm = new Orm();
+            var needs = (from x in  orm.execObject<Result>(round, "api.company_get_round").Needs where x.expert select x).ToList();
+
+            foreach (var need in needs)
+            {
+       
+
+
+            }
+
+
+
+        }
+
     }
 }

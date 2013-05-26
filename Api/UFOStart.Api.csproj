@@ -139,6 +139,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Result.cs" />
     <Compile Include="Services\Messaging\WelcomeEmail.cs" />
+    <Compile Include="Services\Round\FulfilRound.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -166,6 +167,10 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\LinkedIn\UFOStart.LinkedIn.csproj">
+      <Project>{299E0DBD-FB9C-48F0-ABB2-0F72AE8C6E2F}</Project>
+      <Name>UFOStart.LinkedIn</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Model\UFOStart.Model.csproj">
       <Project>{68B9F4F4-CE8C-4937-AFD9-3FC48520A162}</Project>
       <Name>UFOStart.Model</Name>

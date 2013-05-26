@@ -10,6 +10,9 @@ namespace Model
         [XmlAttribute]
         public string start { get; set; }
 
+        [XmlAttribute]
+        public string token { get; set; }
+
         [XmlElement (ElementName = "Needs")]
         public List<Need> Needs { get; set; }
 

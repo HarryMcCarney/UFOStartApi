@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using HackandCraft.Api;
+using Model;
+using UFOStart.LinkedIn;
 using UFOStart.Model;
 
 namespace UFOStart.Api.Controllers
@@ -16,6 +18,8 @@ namespace UFOStart.Api.Controllers
             try
             {
                 result = orm.execObject<Result>(company, "api.company_round_create");
+
+              
              }
             catch (Exception exp)
             {
@@ -24,11 +28,11 @@ namespace UFOStart.Api.Controllers
             return formattedResult(result);
         }
 
-        public string index(Company company)
+        public string index(Round round)
         {
             try
             {
-                result = orm.execObject<Result>(company, "api.company_get_round");
+                result = orm.execObject<Result>(round, "api.company_get_round");
             }
             catch (Exception exp)
             {
