@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 using System.Xml.Serialization;
 using UFOStart.Model;
 
@@ -13,7 +14,7 @@ namespace Model
 
         [XmlAttribute]
         public string token { get; set; }
-
+  
         [XmlElement (ElementName = "Needs")]
         public List<Need> Needs { get; set; }
 

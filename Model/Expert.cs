@@ -14,8 +14,14 @@ namespace Model
         public string lastName { get; set; }
         [XmlAttribute]
         public string picture { get; set; }
-        [XmlElement]
-        public Expert Intro { get; set; }
+        [XmlAttribute]
+        public string introLinkedinId { get; set; }
+        [XmlAttribute]
+        public string introFirstName { get; set; }
+        [XmlAttribute]
+        public string introLastName { get; set; }
+        [XmlAttribute]
+        public string introPicture { get; set; }
 
     }
 }

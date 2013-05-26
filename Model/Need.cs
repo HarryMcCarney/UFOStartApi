@@ -13,11 +13,11 @@ namespace Model
         [XmlAttribute]
         public string key { get; set; }
         [XmlAttribute]
-        public bool expert { get; set; }
+        public bool isExpert { get; set; }
         [XmlElement]
         public Service Service { get; set; }
         [XmlElement]
         public Expert Expert { get; set; }
-
+            
     }
 }

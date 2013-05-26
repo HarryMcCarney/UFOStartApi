@@ -35,22 +35,16 @@ namespace UFOStart.LinkedIn
             var bestMatch = (from x in contacts.People.Person orderby x.rating descending select x).Take(1).ToList()[0];
             getIntro(bestMatch);
 
-
-            var intro = new Expert()
-            {
-                firstName = bestMatch.Intro.firstName,
-                lastName = bestMatch.Intro.lastName,
-                linkedinId = bestMatch.Intro.id,
-                picture = bestMatch.Intro.picture,
-                   
-            };
             var expert = new Expert()
                 {
                     firstName = bestMatch.firstName,
                     lastName = bestMatch.lastName,
                     linkedinId = bestMatch.id,
                     picture = bestMatch.picture,
-                    Intro = intro
+                    introFirstName = bestMatch.Intro.firstName,
+                    introLastName = bestMatch.Intro.lastName,
+                    introLinkedinId = bestMatch.Intro.id,
+                    introPicture = bestMatch.Intro.picture,
                 };
 
             return expert;

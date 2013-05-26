@@ -6,33 +6,39 @@ using UFOStart.Model;
 
 namespace UFOStart.Api
 {
-    public static class FulfilRound
+    public  class FulfilRound
     {
+        private readonly Round round;
 
-        public static void fulfil(Round round)
+        public FulfilRound(Round _round)
         {
-            assignServices(round);
-            assignExperts(round);
+            this.round = _round;
         }
 
-        public static void assignServices(Round round)
+        public  void fulfil()
+        {
+            assignServices();
+            assignExperts();
+        }
+
+        public  void assignServices()
         {
             var orm = new Orm();
             orm.execObject<Result>(round, "api.round_assign_services");
         }
 
 
-        public static void assignExperts(Round round)
+        public  void assignExperts()
         {
             var orm = new Orm();
-            var needs = (from x in  orm.execObject<Result>(round, "api.company_get_round").Round.Needs where x.expert select x).ToList();
+            var needs = (from x in orm.execObject<Result>(round, "api.company_get_round").Round.Needs where x.isExpert select x).ToList();
             var user = (from x in orm.execObject<Result>(round, "api.company_get_round").Round.Users select x).ToList()[0];
             foreach (var need in needs)
             {
                 var expert = new ExpertIntro().getExpert(user, need);
                 need.Expert = expert;
             }
-
+            round.Needs = needs;
             orm.execObject<Result>(round, "api.round_assign_experts");
 
         }

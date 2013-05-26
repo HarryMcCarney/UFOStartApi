@@ -17,7 +17,7 @@ namespace UFOStart.Api.Controllers
             try
             {
                 var myResult = orm.execObject<Result>(company, "api.company_round_create");
-                FulfilRound.fulfil(myResult.Round);
+                new FulfilRound(myResult.Round).fulfil();
                 result = orm.execObject<Result>(myResult.Round, "api.company_get_round");
                 
             }
