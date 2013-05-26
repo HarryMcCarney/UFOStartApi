@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Xml;
 using System.Xml.Serialization;
 using Model;
@@ -62,7 +63,7 @@ namespace UFOStart.LinkedIn
 
         private  PeopleSeach getContacts()
         {
-            var url = string.Format("http://api.linkedin.com/v1/people-search:(people:(id,relation-to-viewer,headline,first-name,last-name,specialties,summary,industry,picture-url),num-results)?keywords={0}&count=25&sort=relevance&authToken={1}", need, accessToken);
+            var url = string.Format("https://api.linkedin.com/v1/people-search:(people:(id,relation-to-viewer,headline,first-name,last-name,specialties,summary,industry,picture-url),num-results)?keywords={0}&count=25&sort=relevance&oauth2_access_token={1}", need, accessToken);
            var contacts = apiHit(url);
            var xml = new XmlDocument();
            xml.LoadXml(contacts);
@@ -74,7 +75,7 @@ namespace UFOStart.LinkedIn
             if (person.id == "private") return;
             var url =
                 string.Format(
-                    "http://api.linkedin.com/v1/people/id={0}:(id,headline,first-name,last-name,specialties,summary,industry,picture-url,relation-to-viewer:(related-connections))?authToken={1}", person.id, accessToken);
+                    "https://api.linkedin.com/v1/people/id={0}:(id,headline,first-name,last-name,specialties,summary,industry,picture-url,relation-to-viewer:(related-connections))?oauth2_access_token={1}", person.id, accessToken);
             var contacts = apiHit(url);
             var xml = new XmlDocument();
             xml.LoadXml(contacts);
@@ -102,7 +103,10 @@ namespace UFOStart.LinkedIn
             string yelpConsumerSecret = "hSYEq3VJO9Ol82hw";
             string yelpRequestToken = accessToken;
             string yelpRequestTokenSecret = secret;
+            var webClient = new WebClient();
+            return webClient.DownloadString(endpoint);
 
+            /*
             Twitterizer.OAuthTokens ot = new Twitterizer.OAuthTokens();
             ot.AccessToken = yelpRequestToken;
             ot.AccessTokenSecret = yelpRequestTokenSecret;
@@ -115,9 +119,10 @@ namespace UFOStart.LinkedIn
             Twitterizer.WebRequestBuilder wb = new Twitterizer.WebRequestBuilder(url, Twitterizer.HTTPVerb.GET, ot);
             System.Net.HttpWebResponse wr = wb.ExecuteRequest();
             StreamReader sr = new StreamReader(wr.GetResponseStream());
+           
             return sr.ReadToEnd();
 
-
+  */
         }
 
 
