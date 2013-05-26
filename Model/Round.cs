@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Xml.Serialization;
+using UFOStart.Model;
 
 namespace Model
 {
@@ -15,6 +16,9 @@ namespace Model
 
         [XmlElement (ElementName = "Needs")]
         public List<Need> Needs { get; set; }
+
+        [XmlElement(ElementName = "Users")]
+        public List<User> Users { get; set; }
 
     }
 }

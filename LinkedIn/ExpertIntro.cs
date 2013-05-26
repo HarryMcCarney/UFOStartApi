@@ -14,14 +14,14 @@ namespace UFOStart.LinkedIn
     {
 
 
-        private static string accessToken { get; set; }
-        private static string secret { get; set; }
-        private static string need { get; set; }
+        private  string accessToken { get; set; }
+        private  string secret { get; set; }
+        private  string need { get; set; }
     
 
 
 
-        public static Expert getExpert(User user, Need _need)
+        public  Expert getExpert(User user, Need _need)
         {
             var profile = (from x in user.Profile where x.type == "LI" select x).Take(1).ToList()[0];
             accessToken = profile.accessToken;
@@ -29,6 +29,8 @@ namespace UFOStart.LinkedIn
             need = _need.name;
 
             var contacts = getContacts();
+            if (contacts.People.Person.Count == 0)
+                return null;
             rankContacts(contacts.People.Person);
             var bestMatch = (from x in contacts.People.Person orderby x.rating descending select x).Take(1).ToList()[0];
             getIntro(bestMatch);
@@ -54,7 +56,7 @@ namespace UFOStart.LinkedIn
             return expert;
         }
 
-        private static void rankContacts(List<Person> contacts )
+        private  void rankContacts(List<Person> contacts )
         {
             //todo this is stubed for now but can rank based on relevance later
             foreach (var c in contacts)
@@ -65,16 +67,16 @@ namespace UFOStart.LinkedIn
         }
 
 
-        private static PeopleSeach getContacts()
+        private  PeopleSeach getContacts()
         {
-            var url = "http://api.linkedin.com/v1/people-search:(people:(id,relation-to-viewer,headline,first-name,last-name,specialties,summary,industry,picture-url),num-results)?keywords=marketing&count=25&sort=relevance";
+            var url = string.Format("http://api.linkedin.com/v1/people-search:(people:(id,relation-to-viewer,headline,first-name,last-name,specialties,summary,industry,picture-url),num-results)?keywords={0}&count=25&sort=relevance",need);
            var contacts = apiHit(url);
            var xml = new XmlDocument();
            xml.LoadXml(contacts);
            return deserialise(xml, new PeopleSeach());
         }
 
-        private static void getIntro(Person person)
+        private  void getIntro(Person person)
         {
             if (person.id == "private") return;
             var url =
@@ -87,7 +89,7 @@ namespace UFOStart.LinkedIn
             person.RelationToViewer.Connections = intro.RelationToViewer.Connections;
         }
 
-        private static T deserialise<T>(XmlDocument xml, T myResult)
+        private  T deserialise<T>(XmlDocument xml, T myResult)
         {
 
             var mySerializer = new XmlSerializer(myResult.GetType());
@@ -99,7 +101,7 @@ namespace UFOStart.LinkedIn
 
         }
 
-        private static string apiHit(string endpoint)
+        private  string apiHit(string endpoint)
         {
 
             string yelpSearchURL = endpoint;
