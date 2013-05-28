@@ -1,13 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
-using System.Web;
-using System.Web.Mvc;
 using HackandCraft.Api;
-using HackandCraft.Config;
 using Model;
+using UFOStart.Api.Services.Messaging;
 using UFOStart.Model;
+using mandrill.net;
 
 namespace UFOStart.Api.Controllers
 {
@@ -19,10 +16,9 @@ namespace UFOStart.Api.Controllers
             try
             {
                 var myResult = orm.execObject<Result>(company, "api.company_round_create");
-                var t = new Task(() => new FulfilRound(myResult.Round).fulfil());
-                t.Start();
+                new FulfilRound(myResult.Round).fulfil();
                 result = orm.execObject<Result>(myResult.Round, "api.company_get_round");
-                
+  
             }
             catch (Exception exp)
             {
