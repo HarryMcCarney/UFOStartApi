@@ -10,5 +10,7 @@ namespace Model
         public string name { get; set; }
         [XmlAttribute]
         public string url { get; set; }
+        [XmlAttribute]
+        public string worker { get; set; }
     }
 }
