@@ -44,7 +44,7 @@ namespace UFOStart.LinkedIn
                     introFirstName = bestMatch.Intro.firstName,
                     introLastName = bestMatch.Intro.lastName,
                     introLinkedinId = bestMatch.Intro.id,
-                    introPicture = bestMatch.Intro.picture,
+                    introPicture = getPicture(bestMatch.Intro.id),
                 };
 
             return expert;
@@ -83,6 +83,21 @@ namespace UFOStart.LinkedIn
             person.RelationToViewer.Connections = intro.RelationToViewer.Connections;
         }
 
+
+        private string getPicture(string id)
+        {
+            var url =  
+                string.Format(
+                    "https://api.linkedin.com/v1/people/id={0}:(id,headline,first-name,last-name,specialties,summary,industry,picture-url)?oauth2_access_token={1}", id, accessToken);
+            var contact = apiHit(url);
+            var xml = new XmlDocument();
+            xml.LoadXml(contact);
+            var contactObj = deserialise(xml, new Person());
+            return contactObj.picture;
+           }
+
+
+
         private  T deserialise<T>(XmlDocument xml, T myResult)
         {
 
@@ -97,32 +112,8 @@ namespace UFOStart.LinkedIn
 
         private  string apiHit(string endpoint)
         {
-
-            string yelpSearchURL = endpoint;
-            string yelpConsumerKey = "8qim4hatqh0z";
-            string yelpConsumerSecret = "hSYEq3VJO9Ol82hw";
-            string yelpRequestToken = accessToken;
-            string yelpRequestTokenSecret = secret;
             var webClient = new WebClient();
             return webClient.DownloadString(endpoint);
-
-            /*
-            Twitterizer.OAuthTokens ot = new Twitterizer.OAuthTokens();
-            ot.AccessToken = yelpRequestToken;
-            ot.AccessTokenSecret = yelpRequestTokenSecret;
-            ot.ConsumerKey = yelpConsumerKey;
-            ot.ConsumerSecret = yelpConsumerSecret;
-
-            string formattedUri = String.Format(CultureInfo.InvariantCulture,
-                                                yelpSearchURL, "");
-            Uri url = new Uri(formattedUri);
-            Twitterizer.WebRequestBuilder wb = new Twitterizer.WebRequestBuilder(url, Twitterizer.HTTPVerb.GET, ot);
-            System.Net.HttpWebResponse wr = wb.ExecuteRequest();
-            StreamReader sr = new StreamReader(wr.GetResponseStream());
-           
-            return sr.ReadToEnd();
-
-  */
         }
 
 
