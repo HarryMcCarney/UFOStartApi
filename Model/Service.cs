@@ -12,5 +12,7 @@ namespace Model
         public string url { get; set; }
         [XmlAttribute]
         public string worker { get; set; }
+        [XmlAttribute]
+        public string picture { get; set; }
     }
 }
