@@ -38,5 +38,20 @@ namespace UFOStart.Api.Controllers
             return formattedResult(result);
         }
 
+
+        public string create(User user)
+        {
+            try
+            {
+                result = orm.execObject<Result>(user, "api.company_create");
+
+            }
+            catch (Exception exp)
+            {
+                errorResult(exp);
+            }
+            return formattedResult(result);
+        }
+
     }
 }
