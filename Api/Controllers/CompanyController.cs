@@ -4,7 +4,11 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using HackandCraft.Api;
+using HackandCraft.Config;
+using Model;
+using UFOStart.Api.Services.Messaging;
 using UFOStart.Model;
+using mandrill.net;
 
 namespace UFOStart.Api.Controllers
 {
@@ -58,6 +62,26 @@ namespace UFOStart.Api.Controllers
             try
             {
                 result = orm.execObject<Result>(company, "api.company_add_angel_list");
+
+            }
+            catch (Exception exp)
+            {
+                errorResult(exp);
+            }
+            return formattedResult(result);
+        }
+
+
+        public string invite(Invite invite)
+        {
+            try
+            {
+                var token = Guid.NewGuid().ToString();
+                invite.inviteToken = token;
+                result = orm.execObject<Result>(invite, "api.company_invite");
+                var link = string.Format("{0}{1}{2}", Globals.Instance.settings["RootUrl"],
+                                         Globals.Instance.settings["CompanyInvite"], invite.inviteToken);
+                Mail.enqueue(new CompanyInviteEmail(invite.email, invite.name, invite.invitorName, link));
 
             }
             catch (Exception exp)
