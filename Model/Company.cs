@@ -28,6 +28,8 @@ namespace UFOStart.Model
         public List<Round> Rounds { get; set; }
         [XmlElement]
         public Round Round { get; set; }
+        [XmlElement]
+        public List<User> Users { get; set; }
     }
 
     

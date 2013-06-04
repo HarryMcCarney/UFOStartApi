@@ -15,6 +15,8 @@ namespace UFOStart.Model
         [XmlAttribute]
         public string pwd { get; set; }
         [XmlAttribute]
+        public string picture { get; set; }
+        [XmlAttribute]
         public string token { get; set; }
         [XmlElement]
         public List<Profile> Profile { get; set; }
