@@ -29,15 +29,16 @@ namespace UFOStart.Api.Controllers
             try
             {
                 result = orm.execObject<Result>(user, user.Profile[0].type == "LI" ? "api.user_linkedin_connect" : "api.user_facebook_connect");
+                var myresult = (Result)result;
                 if (result.dbMessage == "NEWUSER")
-                    Mail.enqueue(new WelcomeEmail(user.email, user.name));
+                    Mail.enqueue(new WelcomeEmail(myresult.User.email, myresult.User.name));
             
             }
             catch (Exception exp)
             {
                 errorResult(exp);
             }
-            return formattedResult(result);
+            return formattedResult(myresult);
         }
 
         public string login(User user)
