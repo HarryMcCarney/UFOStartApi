@@ -20,6 +20,10 @@ namespace Model
 
         [XmlElement(ElementName = "Users")]
         public List<User> Users { get; set; }
+        [XmlElement(ElementName = "Pledges")]
+        public List<Pledge> Pledges { get; set; }
+        [XmlElement]
+        public Pledge Pledge { get; set; }
 
     }
 }

@@ -15,10 +15,8 @@ namespace UFOStart.Api.Controllers
         {
             try
             {
-                var myResult = orm.execObject<Result>(company, "api.company_round_create");
-                new FulfilRound(myResult.Round).fulfil();
-                result = orm.execObject<Result>(myResult.Round, "api.company_get_round");
-  
+                result = orm.execObject<Result>(company, "api.company_round_create");
+           
             }
             catch (Exception exp)
             {
@@ -33,6 +31,22 @@ namespace UFOStart.Api.Controllers
             {
                 result = orm.execObject<Result>(round, "api.company_get_round");
                 
+            }
+            catch (Exception exp)
+            {
+                errorResult(exp);
+            }
+            return formattedResult(result);
+        }
+
+
+        public string needs(Round round)
+        {
+            try
+            {
+                var myResult = orm.execObject<Result>(round, "api.company_needs_create");
+                new FulfilRound(myResult.Round).fulfil();
+                result = orm.execObject<Result>(myResult.Round, "api.company_get_round");
             }
             catch (Exception exp)
             {
