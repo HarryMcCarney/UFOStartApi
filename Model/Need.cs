@@ -13,6 +13,8 @@ namespace Model
         [XmlAttribute]
         public string category { get; set; }
         [XmlAttribute]
+        public string description { get; set; }
+        [XmlAttribute]
         public string key { get; set; }
         [XmlAttribute]
         public bool isExpert { get; set; }
