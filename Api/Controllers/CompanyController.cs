@@ -72,16 +72,19 @@ namespace UFOStart.Api.Controllers
         }
 
 
-        public string invite(Invite invite)
+        public string invite(Invites invites)
         {
             try
             {
-                var token = Guid.NewGuid().ToString();
-                invite.inviteToken = token;
-                result = orm.execObject<Result>(invite, "api.company_invite");
-                var link = string.Format("{0}{1}{2}", Globals.Instance.settings["RootUrl"],
-                                         Globals.Instance.settings["CompanyInvite"], invite.inviteToken);
-                Mail.enqueue(new CompanyInviteEmail(invite.email, invite.name, invite.invitorName, link));
+                foreach (var invite in invites.Invite)
+                {
+                    var token = Guid.NewGuid().ToString();
+                    invite.inviteToken = token;
+                    result = orm.execObject<Result>(invite, "api.company_invite");
+                    var link = string.Format("{0}{1}{2}", Globals.Instance.settings["RootUrl"],
+                                             Globals.Instance.settings["CompanyInvite"], invite.inviteToken);
+                    Mail.enqueue(new CompanyInviteEmail(invite.email, invite.name, invite.invitorName, link));
+                }
 
             }
             catch (Exception exp)
