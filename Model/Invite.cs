@@ -20,5 +20,7 @@ namespace Model
         public string name { get; set; }
         [XmlAttribute]
         public string inviteToken { get; set; }
+        [XmlAttribute]
+        public string userToken { get; set; }
     }
 }
