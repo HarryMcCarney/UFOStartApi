@@ -94,5 +94,19 @@ namespace UFOStart.Api.Controllers
             return formattedResult(result);
         }
 
+        public string getInvite(Invite invite)
+        {
+            try
+            {
+                result = orm.execObject<Result>(invite, "api.invite_get");
+
+            }
+            catch (Exception exp)
+            {
+                errorResult(exp);
+            }
+            return formattedResult(result);
+        }
+
     }
 }

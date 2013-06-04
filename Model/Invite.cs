@@ -15,6 +15,8 @@ namespace Model
         [XmlAttribute]
         public string companySlug { get; set; }
         [XmlAttribute]
+        public string companyName { get; set; }
+        [XmlAttribute]
         public string name { get; set; }
         [XmlAttribute]
         public string inviteToken { get; set; }
