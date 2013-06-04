@@ -45,6 +45,7 @@
     <Compile Include="Company.cs" />
     <Compile Include="Expert.cs" />
     <Compile Include="Invite.cs" />
+    <Compile Include="Invites.cs" />
     <Compile Include="Need.cs" />
     <Compile Include="Pledge.cs" />
     <Compile Include="Profile.cs" />
