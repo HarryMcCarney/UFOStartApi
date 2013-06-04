@@ -18,6 +18,8 @@ namespace UFOStart.Model
         public string description { get; set; }
         [XmlAttribute]
         public string angelListId { get; set; }
+        [XmlAttribute]
+        public string angelListToken { get; set; }
         [XmlElement]
         public Template Template { get; set; }
         [XmlElement (ElementName = "Templates")]
