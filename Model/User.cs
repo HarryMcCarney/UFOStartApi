@@ -18,6 +18,8 @@ namespace UFOStart.Model
         public string picture { get; set; }
         [XmlAttribute]
         public string token { get; set; }
+        [XmlAttribute]
+        public bool unconfirmed { get; set; }
         [XmlElement]
         public List<Profile> Profile { get; set; }
 
