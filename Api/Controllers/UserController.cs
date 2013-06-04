@@ -38,7 +38,7 @@ namespace UFOStart.Api.Controllers
             {
                 errorResult(exp);
             }
-            return formattedResult(myresult);
+            return formattedResult(result);
         }
 
         public string login(User user)
