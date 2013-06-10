@@ -47,7 +47,9 @@
     <Compile Include="Invite.cs" />
     <Compile Include="Invites.cs" />
     <Compile Include="Need.cs" />
+    <Compile Include="Offer.cs" />
     <Compile Include="Pledge.cs" />
+    <Compile Include="Product.cs" />
     <Compile Include="Profile.cs" />
     <Compile Include="Round.cs" />
     <Compile Include="Service.cs" />

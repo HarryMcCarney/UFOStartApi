@@ -26,6 +26,8 @@ namespace Model
         public Pledge Pledge { get; set; }
         [XmlElement]
         public Template Template { get; set; }
+        [XmlElement]
+        public Product Product { get; set; }
 
     }
 }

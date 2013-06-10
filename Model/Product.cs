@@ -1,25 +1,24 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Xml.Serialization;
 
 namespace Model
 {
     [Serializable]
-    public class Pledge
+    public class Product
     {
-
         [XmlAttribute]
         public string name { get; set; }
         [XmlAttribute]
         public string picture { get; set; }
         [XmlAttribute]
-        public string network { get; set; }
+        public string token { get; set; }
         [XmlAttribute]
-        public string networkId { get; set; }
+        public string description { get; set; }
         [XmlAttribute]
-        public string offer { get; set; }
-        [XmlAttribute]
-        public string comment { get; set; }
-
-
+        public string video { get; set; }
+        [XmlElement]
+        public List<Offer> Offers { get; set; }
     }
 }
+

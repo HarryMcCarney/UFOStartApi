@@ -131,6 +131,7 @@
     <Compile Include="Controllers\CompanyController.cs" />
     <Compile Include="Controllers\NeedController.cs" />
     <Compile Include="Controllers\PledgeController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\RoundController.cs" />
     <Compile Include="Controllers\TagController.cs" />
     <Compile Include="Controllers\TemplateController.cs" />
