@@ -68,6 +68,19 @@ namespace UFOStart.Api.Controllers
             return formattedResult(result);
         }
 
+        public string removeTag(Round round)
+        {
+            try
+            {
+                result = orm.execObject<Result>(round, "api.need_remove_tag");
+            }
+            catch (Exception exp)
+            {
+                errorResult(exp);
+            }
+            return formattedResult(result);
+        }
+
     }
 }
 
