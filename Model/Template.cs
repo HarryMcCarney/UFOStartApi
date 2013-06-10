@@ -12,6 +12,10 @@ namespace Model
         public string name { get; set; }
         [XmlAttribute]
         public string key { get; set; }
+        [XmlAttribute]
+        public string picture { get; set; }
+        [XmlAttribute]
+        public string description { get; set; }
         [XmlElement]
         public List<Need> Need { get; set; }
     }
