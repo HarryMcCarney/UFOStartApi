@@ -13,6 +13,8 @@ namespace Model
         [XmlAttribute]
         public string status { get; set; }
         [XmlAttribute]
+        public string token { get; set; }
+        [XmlAttribute]
         public string category { get; set; }
         [XmlAttribute]
         public string description { get; set; }

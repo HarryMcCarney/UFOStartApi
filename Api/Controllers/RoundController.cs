@@ -55,6 +55,19 @@ namespace UFOStart.Api.Controllers
             return formattedResult(result);
         }
 
+        public string removeNeed(Round round)
+        {
+            try
+            {
+                result = orm.execObject<Result>(round, "api.round_remove_need");
+              }
+            catch (Exception exp)
+            {
+                errorResult(exp);
+            }
+            return formattedResult(result);
+        }
+
     }
 }
 
