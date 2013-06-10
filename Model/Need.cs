@@ -20,6 +20,12 @@ namespace Model
         [XmlAttribute]
         public string description { get; set; }
         [XmlAttribute]
+        public string picture { get; set; }
+        [XmlAttribute]
+        public string cash { get; set; }
+        [XmlAttribute]
+        public string equity { get; set; }
+        [XmlAttribute]
         public string key { get; set; }
         [XmlAttribute]
         public bool isExpert { get; set; }
