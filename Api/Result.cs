@@ -41,6 +41,8 @@ namespace UFOStart.Api
         public Round  Round { get; set; }
         [XmlElement]
         public Invite Invite { get; set; }
+        [XmlElement]
+        public List<Tag> Tags { get; set; }
 
     }
 }

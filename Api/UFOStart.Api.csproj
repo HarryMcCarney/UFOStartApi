@@ -132,6 +132,7 @@
     <Compile Include="Controllers\NeedController.cs" />
     <Compile Include="Controllers\PledgeController.cs" />
     <Compile Include="Controllers\RoundController.cs" />
+    <Compile Include="Controllers\TagController.cs" />
     <Compile Include="Controllers\TemplateController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
