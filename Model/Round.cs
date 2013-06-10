@@ -24,6 +24,8 @@ namespace Model
         public List<Pledge> Pledges { get; set; }
         [XmlElement]
         public Pledge Pledge { get; set; }
+        [XmlElement]
+        public Template Template { get; set; }
 
     }
 }
