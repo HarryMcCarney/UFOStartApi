@@ -28,8 +28,11 @@ namespace UFOStart.Api.Controllers
         {
             try
             {
-                if (user.Profile[0].type == "XI" || user.Profile[0].type == "XI")
-                    result.dbMessage = "User is logged but cant proceed without linkedin";
+                if (user.Profile[0].type == "XI" || user.Profile[0].type == "TW")
+                {
+                    result = new Result(){dbMessage ="User is logged but cant proceed without linkedin" };
+                }
+                
                 else
                 {
                     result = orm.execObject<Result>(user, user.Profile[0].type == "LI" ? "api.user_linkedin_connect" : "api.user_facebook_connect");
