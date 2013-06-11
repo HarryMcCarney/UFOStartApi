@@ -34,6 +34,8 @@ namespace UFOStart.Model
         public string url { get; set; }
         [XmlAttribute]
         public string logo { get; set; }
+        [XmlAttribute]
+        public string tagString { get; set; }
     }
 
     
