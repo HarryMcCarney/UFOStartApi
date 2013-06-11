@@ -30,6 +30,10 @@ namespace UFOStart.Model
         public Round Round { get; set; }
         [XmlElement]
         public List<User> Users { get; set; }
+        [XmlAttribute]
+        public string url { get; set; }
+        [XmlAttribute]
+        public string logo { get; set; }
     }
 
     
