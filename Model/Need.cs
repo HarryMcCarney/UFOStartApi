@@ -37,6 +37,8 @@ namespace Model
         public List<Tag> Tags { get; set; }
         [XmlElement]
         public Application Application { get; set; }
+        [XmlElement]
+        public List<Application> Applications { get; set; }
             
     }
 }
