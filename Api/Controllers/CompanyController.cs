@@ -49,9 +49,9 @@ namespace UFOStart.Api.Controllers
                 var myResult = (Result)result;
                 if (myResult.User.Company.Round != null)
                 {
-                    //new FulfilRound(myResult.User.Company.Round).fulfil();
-                    var task = new Task(() => new FulfilRound(myResult.User.Company.Round).fulfil());
-                    task.Start();
+                    new FulfilRound(myResult.User.Company.Round).fulfil();
+                   // var task = new Task(() => new FulfilRound(myResult.User.Company.Round).fulfil());
+                    //task.Start();
                 }
                 
 

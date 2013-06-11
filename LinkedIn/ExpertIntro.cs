@@ -39,7 +39,7 @@ namespace UFOStart.LinkedIn
             rankContacts(contacts);
 
 
-            var bestMatches = (from x in contacts orderby x.rating descending select x).Take(4).ToList();
+            var bestMatches = (from x in contacts orderby x.rating descending select x).Take(7).ToList();
             foreach (var match in bestMatches)
             {
                 getIntro(match);
