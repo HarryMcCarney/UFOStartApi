@@ -14,5 +14,7 @@ namespace Model
         public string worker { get; set; }
         [XmlAttribute]
         public string picture { get; set; }
+        [XmlAttribute]
+        public string logo { get; set; }
     }
 }
