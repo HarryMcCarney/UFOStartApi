@@ -35,8 +35,8 @@ namespace UFOStart.Api
             var user = (from x in orm.execObject<Result>(round, "api.company_get_round").Round.Users select x).ToList()[0];
             foreach (var need in needs)
             {
-                var expert = new ExpertIntro().getExpert(user, need);
-                need.Expert = expert;
+                var experts = new ExpertIntro().getExperts(user, need);
+                need.Experts = experts;
             }
             round.Needs = needs;
             orm.execObject<Result>(round, "api.round_assign_experts");

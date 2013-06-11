@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+using System.Threading.Tasks;
 using HackandCraft.Api;
 using HackandCraft.Config;
 using Model;
@@ -34,6 +31,7 @@ namespace UFOStart.Api.Controllers
             {
                 result = orm.execObject<Result>(company, "api.company_get");
 
+
             }
             catch (Exception exp)
             {
@@ -48,6 +46,14 @@ namespace UFOStart.Api.Controllers
             try
             {
                 result = orm.execObject<Result>(user, "api.company_create");
+                var myResult = (Result)result;
+                if (myResult.User.Company.Round != null)
+                {
+                    //new FulfilRound(myResult.User.Company.Round).fulfil();
+                    var task = new Task(() => new FulfilRound(myResult.User.Company.Round).fulfil());
+                    task.Start();
+                }
+                
 
             }
             catch (Exception exp)

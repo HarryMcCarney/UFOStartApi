@@ -21,8 +21,11 @@ namespace UFOStart.LinkedIn
 
 
 
-        public  Expert getExpert(User user, Need _need)
+        public  List<Expert> getExperts(User user, Need _need)
         {
+
+
+            var experts = new List<Expert>();
             var profile = (from x in user.Profile where x.type == "LI" select x).Take(1).ToList()[0];
             accessToken = profile.accessToken;
             need = _need.name;
@@ -34,29 +37,39 @@ namespace UFOStart.LinkedIn
             if (contacts.Count == 0)
                 return null;
             rankContacts(contacts);
-            var bestMatch = (from x in contacts orderby x.rating descending select x).Take(1).ToList()[0];
-            getIntro(bestMatch);
 
-            var expert = new Expert()
-                {
-                    firstName = bestMatch.firstName,
-                    lastName = bestMatch.lastName,
-                    linkedinId = bestMatch.id,
-                    picture = bestMatch.picture,
-                    introFirstName = bestMatch.Intro.firstName,
-                    introLastName = bestMatch.Intro.lastName,
-                    introLinkedinId = bestMatch.Intro.id,
-                    introPicture = getPicture(bestMatch.Intro.id),
-                };
 
-            return expert;
+            var bestMatches = (from x in contacts orderby x.rating descending select x).Take(4).ToList();
+            foreach (var match in bestMatches)
+            {
+                getIntro(match);
+
+                experts.Add(new Expert()
+                    {
+
+                        firstName = match.firstName,
+                        lastName = match.lastName,
+                        linkedinId = match.id,
+                        picture = match.picture,
+                        introFirstName = match.Intro.firstName,
+                        introLastName = match.Intro.lastName,
+                        introLinkedinId = match.Intro.id,
+                        introPicture = getPicture(match.Intro.id),
+                 });
+
+
+            }
+
+            return experts;
         }
 
         private  void rankContacts(List<Person> contacts )
         {
             //todo this is stubed for now but can rank based on relevance later
+       
             foreach (var c in contacts)
             {
+
                 c.rating = -1;
             }
              contacts[0].rating = 100;

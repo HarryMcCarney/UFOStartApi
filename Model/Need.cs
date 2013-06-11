@@ -32,7 +32,11 @@ namespace Model
         [XmlElement]
         public Service Service { get; set; }
         [XmlElement]
+        public List<Service> Services { get; set; }
+        [XmlElement]
         public Expert Expert { get; set; }
+        [XmlElement]
+        public List<Expert> Experts { get; set; }
         [XmlElement]
         public List<Tag> Tags { get; set; }
         [XmlElement]
