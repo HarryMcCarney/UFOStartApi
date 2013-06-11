@@ -35,6 +35,8 @@ namespace Model
         public Expert Expert { get; set; }
         [XmlElement]
         public List<Tag> Tags { get; set; }
+        [XmlElement]
+        public Application Application { get; set; }
             
     }
 }
