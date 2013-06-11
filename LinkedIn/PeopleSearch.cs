@@ -90,7 +90,13 @@ namespace UFOStart.LinkedIn
         [XmlIgnore]
         public Person Intro
         {
-            get { return RelationToViewer.Connections.Persons[0]; }
+            get
+            {
+                if (RelationToViewer.Connections.Persons.Count == 0)
+                    return null;
+                 return  RelationToViewer.Connections.Persons[0]; 
+            
+            }
 
         }
 

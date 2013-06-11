@@ -44,19 +44,25 @@ namespace UFOStart.LinkedIn
             {
                 getIntro(match);
 
-                experts.Add(new Expert()
+
+                var expert = new Expert()
                     {
 
                         firstName = match.firstName,
                         lastName = match.lastName,
                         linkedinId = match.id,
-                        picture = match.picture,
-                        introFirstName = match.Intro.firstName,
-                        introLastName = match.Intro.lastName,
-                        introLinkedinId = match.Intro.id,
-                        introPicture = getPicture(match.Intro.id),
-                 });
+                        picture = match.picture
+                    };
 
+                
+                if (match.Intro != null)
+                {
+                    expert.introFirstName = match.Intro.firstName;
+                    expert.introLastName = match.Intro.lastName;
+                    expert.introLinkedinId = match.Intro.id;
+                    expert.introPicture = getPicture(match.Intro.id);
+                };
+                experts.Add(expert);
 
             }
 
