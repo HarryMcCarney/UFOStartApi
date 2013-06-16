@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Xml.Serialization;
+using UFOStart.Model;
 
 namespace Model
 {
@@ -35,6 +36,8 @@ namespace Model
         public List<Service> Services { get; set; }
         [XmlElement]
         public Expert Expert { get; set; }
+        [XmlElement]
+        public Company Company { get; set; }
         [XmlElement]
         public List<Expert> Experts { get; set; }
         [XmlElement]

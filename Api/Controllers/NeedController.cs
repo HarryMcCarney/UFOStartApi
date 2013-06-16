@@ -45,5 +45,18 @@ namespace UFOStart.Api.Controllers
             return formattedResult(result);
         }
 
+        public string search(Search search)
+        {
+            try
+            {
+                result = orm.execObject<Result>(search, "api.need_search");
+            }
+            catch (Exception exp)
+            {
+                errorResult(exp);
+            }
+            return formattedResult(result);
+        }
+
     }
 }
