@@ -28,6 +28,8 @@ namespace Model
         public Template Template { get; set; }
         [XmlElement]
         public Product Product { get; set; }
+        [XmlElement]
+        public Workflow Workflow { get; set; }
 
     }
 }
