@@ -22,7 +22,6 @@ namespace UFOStart.Model
         public bool unconfirmed { get; set; }
         [XmlElement]
         public List<Profile> Profile { get; set; }
-
         [XmlElement]
         public Company Company { get; set; }
 
