@@ -24,16 +24,9 @@ namespace UFOStart.Model
         public List<Profile> Profile { get; set; }
 
         [XmlElement]
-        public Company Company {
-            get
-            {
-                if (Company == null && Companies[0] != null) return Companies[0];
-                if (Company == null && Companies[0] == null) return null;
-                return Company;
-            }
-            set { Company = value; } 
-        }
+        public Company Company { get; set; }
 
+       
 
         [XmlElement]
         public List<Company> Companies { get; set; }
