@@ -24,7 +24,7 @@ namespace UFOStart.Model
         public List<Profile> Profile { get; set; }
 
         [XmlElement]
-        public Company Company { get; set; }
+        public List<Company> Company { get; set; }
 
     }
 }
