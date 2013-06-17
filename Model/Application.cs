@@ -13,6 +13,17 @@ namespace Model
         public string message { get; set; }
         [XmlAttribute]
         public string created { get; set; }
+        [XmlAttribute]
+        public string comapnyLogo { get; set; }
+        [XmlAttribute]
+        public string companyName { get; set; }
+        [XmlAttribute]
+        public string companyToken { get; set; }
+        [XmlAttribute]
+        public string companySlug { get; set; }
+        [XmlAttribute]
+        public string need { get; set; }
+
         
     }
 }
