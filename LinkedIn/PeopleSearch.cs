@@ -113,13 +113,20 @@ namespace UFOStart.LinkedIn
         {
             get
             {
-                var mySkills = new List<string>();
-                if (SkillsWrapper.SkillList != null)
+                try
                 {
-                    mySkills.AddRange(SkillsWrapper.SkillList.Select(s => s.innerSkill.name.value));
-                    return mySkills;
+                    var mySkills = new List<string>();
+                    if (SkillsWrapper.SkillList != null)
+                    {
+                        mySkills.AddRange(SkillsWrapper.SkillList.Select(s => s.innerSkill.name.value));
+                        return mySkills;
+                    }
+                    return null;
                 }
-                return null;
+                catch (Exception exp)
+                {
+                    return null;
+                }
             }
         }
      

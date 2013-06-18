@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Xml.Serialization;
+using UFOStart.Model;
 
 namespace Model
 {
@@ -24,6 +26,8 @@ namespace Model
         public string introLastName { get; set; }
         [XmlAttribute]
         public string introPicture { get; set; }
+        [XmlElement]
+        public List<Skill> Skills { get; set; }
 
     }
 }

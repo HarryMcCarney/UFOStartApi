@@ -41,6 +41,7 @@ public static class Contact
                 string.Format(
                     "https://api.linkedin.com/v1/people/id={0}:(id,skills,positions,headline,summary)?oauth2_access_token={1}", id, accessToken);
             var contact = api.hit(url);
+            if (contact == null) return null;
             var xml = new XmlDocument();
             xml.LoadXml(contact);
             var contactObj = api.deserialise(xml, new Person());
@@ -77,7 +78,7 @@ public static class Contact
         {
             var url =
                 string.Format(
-                    "https://api.linkedin.com/v1/people-search:(people:(id,relation-to-viewer,headline,first-name,last-name,specialties,summary,industry,picture-url),num-results)?keywords={0}&count=25&sort=relevance&oauth2_access_token={1}",
+                    "https://api.linkedin.com/v1/people-search:(people:(id,skills,relation-to-viewer,headline,first-name,last-name,specialties,summary,industry,picture-url),num-results)?keywords={0}&count=25&sort=relevance&oauth2_access_token={1}",
                     need.name, accessToken);
             var contacts = api.hit(url);
             if (contacts == null)
@@ -100,8 +101,10 @@ public static class Contact
             if (person.id == "private") return null;
             var url =
                 string.Format(
-                    "https://api.linkedin.com/v1/people/id={0}:(id,skills,headline,first-name,last-name,specialties,summary,industry,picture-url,relation-to-viewer:(related-connections))?oauth2_access_token={1}", person.id, accessToken);
+                    "https://api.linkedin.com/v1/people/id={0}:(id,headline,first-name,last-name,specialties,summary,industry,picture-url,relation-to-viewer:(related-connections))?oauth2_access_token={1}", person.id, accessToken);
             var contacts = api.hit(url);
+            if (contacts == null)
+                return null;
             var xml = new XmlDocument();
             xml.LoadXml(contacts);
             var intro = api.deserialise(xml, new Person());

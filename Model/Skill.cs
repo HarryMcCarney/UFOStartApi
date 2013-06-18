@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Xml.Serialization;
 
-namespace Model
+namespace UFOStart.Model
 {
     [Serializable]
     public class Skill

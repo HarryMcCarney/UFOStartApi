@@ -3,6 +3,7 @@ using System.Linq;
 using LinkedIn;
 using Model;
 using UFOStart.Model;
+using Skill = UFOStart.Model.Skill;
 
 namespace UFOStart.LinkedIn
 {
@@ -45,11 +46,19 @@ namespace UFOStart.LinkedIn
                         lastName = match.lastName,
                         linkedinId = match.id,
                         picture = match.picture,
-                        headline = match.headline
+                        headline = match.headline,
+                       
                     };
+                var skills = Contact.getSkils(match.id, accessToken);
+                if (skills != null)
+                {
+                    
+                     expert.Skills = skills.Select(s => new Model.Skill() { name = s }).ToList();
+                }
 
 
-                if (intro.Intro != null)
+          
+                if (intro != null && intro.Intro != null)
                 {
                     expert.introFirstName = intro.Intro.firstName;
                     expert.introLastName = intro.Intro.lastName;
