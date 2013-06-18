@@ -29,6 +29,8 @@ namespace Model
         [XmlAttribute]
         public string key { get; set; }
         [XmlAttribute]
+        public string summary { get; set; }
+        [XmlAttribute]
         public bool isExpert { get; set; }
         [XmlElement]
         public Service Service { get; set; }

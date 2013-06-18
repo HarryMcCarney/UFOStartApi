@@ -47,7 +47,7 @@ namespace UFOStart.Api.Controllers
             {
                 result = orm.execObject<Result>(user, "api.company_create");
                 var myResult = (Result)result;
-                if (myResult.User.Company.Round != null)
+                if (result.dbMessage == null &&  myResult.User.Company.Round != null)
                 {
                     //new FulfilRound(myResult.User.Company.Round).fulfil();
                    var task = new Task(() => new FulfilRound(myResult.User.Company.Round).fulfil());

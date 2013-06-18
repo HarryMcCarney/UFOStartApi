@@ -49,7 +49,8 @@ namespace UFOStart.LinkedIn
                         firstName = match.firstName,
                         lastName = match.lastName,
                         linkedinId = match.id,
-                        picture = match.picture
+                        picture = match.picture,
+                        headline = match.headline
                     };
 
                 
