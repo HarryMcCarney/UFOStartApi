@@ -31,5 +31,9 @@ namespace Model
         [XmlElement]
         public Workflow Workflow { get; set; }
 
+        [XmlAttribute]
+        public string status { get; set; }
+  
+
     }
 }
