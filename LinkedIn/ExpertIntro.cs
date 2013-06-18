@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Net;
-using System.Xml;
-using System.Xml.Serialization;
 using LinkedIn;
 using Model;
 using UFOStart.Model;
@@ -40,7 +35,7 @@ namespace UFOStart.LinkedIn
             var bestMatches = (from x in contacts orderby x.rating descending select x).Take(7).ToList();
             foreach (var match in bestMatches)
             {
-                Contact.getIntro(match, accessToken);
+                var intro = Contact.getIntro(match, accessToken);
 
 
                 var expert = new Expert()
@@ -53,13 +48,13 @@ namespace UFOStart.LinkedIn
                         headline = match.headline
                     };
 
-                
-                if (match.Intro != null)
+
+                if (intro.Intro != null)
                 {
-                    expert.introFirstName = match.Intro.firstName;
-                    expert.introLastName = match.Intro.lastName;
-                    expert.introLinkedinId = match.Intro.id;
-                    expert.introPicture = Contact.getPicture(match.Intro.id,accessToken);
+                    expert.introFirstName = intro.Intro.firstName;
+                    expert.introLastName = intro.Intro.lastName;
+                    expert.introLinkedinId = intro.Intro.id;
+                    expert.introPicture = Contact.getPicture(intro.Intro.id, accessToken);
                 };
                 experts.Add(expert);
 

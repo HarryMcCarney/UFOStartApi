@@ -78,7 +78,7 @@ public static class Contact
             var url =
                 string.Format(
                     "https://api.linkedin.com/v1/people-search:(people:(id,relation-to-viewer,headline,first-name,last-name,specialties,summary,industry,picture-url),num-results)?keywords={0}&count=25&sort=relevance&oauth2_access_token={1}",
-                    need, accessToken);
+                    need.name, accessToken);
             var contacts = api.hit(url);
             if (contacts == null)
                 return null;
