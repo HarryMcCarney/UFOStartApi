@@ -1,5 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using HackandCraft.Api;
+using LinkedIn;
+using Model;
+using UFOStart.Api.Services;
 using UFOStart.Api.Services.Messaging;
 using UFOStart.Model;
 using mandrill.net;
@@ -39,6 +44,11 @@ namespace UFOStart.Api.Controllers
                     var myresult = (Result)result;
                     if (result.dbMessage == "NEWUSER")
                         Mail.enqueue(new WelcomeEmail(myresult.User.email, myresult.User.name));
+                    if (user.Profile[0].type == "LI")
+                    {
+                        user.token = myresult.User.token;
+                        new Task(() => SaveSkills.save(user)).Start();
+                    }
                 }
                 
             }

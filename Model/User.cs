@@ -29,6 +29,8 @@ namespace UFOStart.Model
         public List<Company> Companies { get; set; }
         [XmlElement]
         public List<Application> Applications { get; set; }
+        [XmlElement]
+        public List<Skill> Skills { get; set; }
 
     }
 }

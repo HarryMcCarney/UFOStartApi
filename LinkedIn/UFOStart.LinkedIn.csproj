@@ -55,6 +55,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contact.cs" />
+    <Compile Include="LinkedInApi.cs" />
     <Compile Include="PeopleSearch.cs" />
     <Compile Include="ExpertIntro.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

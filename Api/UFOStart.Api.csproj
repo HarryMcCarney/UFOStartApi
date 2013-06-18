@@ -145,6 +145,7 @@
     <Compile Include="Services\Messaging\RoundCreate.cs" />
     <Compile Include="Services\Messaging\WelcomeEmail.cs" />
     <Compile Include="Services\Round\FulfilRound.cs" />
+    <Compile Include="Services\SaveSkills.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />

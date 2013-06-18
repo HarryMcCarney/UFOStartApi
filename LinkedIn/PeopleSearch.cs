@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Xml.Serialization;
 
 namespace UFOStart.LinkedIn
@@ -30,6 +31,13 @@ namespace UFOStart.LinkedIn
         public string id
         {
             get { return ID.value; }
+            set { }
+        }
+
+        [XmlIgnore]
+        public string name
+        {
+            get { return Name.value; }
             set { }
         }
 
@@ -100,8 +108,28 @@ namespace UFOStart.LinkedIn
 
         }
 
+        [XmlIgnore]
+        public List<string> skillTags
+        {
+            get
+            {
+                var mySkills = new List<string>();
+                if (SkillsWrapper.SkillList != null)
+                {
+                    mySkills.AddRange(SkillsWrapper.SkillList.Select(s => s.innerSkill.name.value));
+                    return mySkills;
+                }
+                return null;
+            }
+        }
+     
+     
+     
         [XmlElement(ElementName = "id")]
         public ID ID { get; set; }
+
+        [XmlElement(ElementName = "name")]
+        public Name Name { get; set; }
 
         [XmlElement(ElementName = "first-name")]
         public FirstName FirstName { get; set; }
@@ -111,6 +139,8 @@ namespace UFOStart.LinkedIn
 
         [XmlElement(ElementName = "relation-to-viewer")]
         public RelationToViewer RelationToViewer { get; set; }
+
+
 
         [XmlElement(ElementName = "headline")]
         public HeadLine HeadLine { get; set; }
@@ -129,7 +159,39 @@ namespace UFOStart.LinkedIn
 
         [XmlIgnore]
         public int rating { get; set; }
+
+        [XmlElement(ElementName = "skills")]
+        public SkillsWrapper SkillsWrapper { get; set; }
     }
+
+    //THIS IS THE INNER CLASSES
+
+
+    [Serializable]
+    public class SkillsWrapper
+    {
+        [XmlAttribute]
+        public string total { get; set; }
+
+        [XmlElement(ElementName = "skill")]
+        public List<Skill> SkillList { get; set; }
+
+    }
+      
+    
+
+    [Serializable]
+    public class Skill
+    {
+        [XmlElement]
+        public ID id { get; set; }
+        [XmlElement]
+        public Name name { get; set; }
+
+        [XmlElement (ElementName= "skill")]
+        public Skill innerSkill { get; set; }
+    }
+
 
     [Serializable]
         public class ID
@@ -213,5 +275,15 @@ namespace UFOStart.LinkedIn
             [XmlText]
             public string value { get; set; }
         }
+
+        [Serializable]
+        public class Name
+        {
+            [XmlText]
+            public string value { get; set; }
+        }
+
+
     }
+
 

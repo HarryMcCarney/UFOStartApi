@@ -55,6 +55,7 @@
     <Compile Include="Round.cs" />
     <Compile Include="Search.cs" />
     <Compile Include="Service.cs" />
+    <Compile Include="Skill.cs" />
     <Compile Include="Stage.cs" />
     <Compile Include="Tag.cs" />
     <Compile Include="Template.cs" />
