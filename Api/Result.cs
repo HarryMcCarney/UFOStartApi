@@ -43,6 +43,8 @@ namespace UFOStart.Api
         public Invite Invite { get; set; }
         [XmlElement]
         public List<Tag> Tags { get; set; }
+        [XmlElement]
+        public List<Company> Companies { get; set; }
 
     }
 }

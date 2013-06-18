@@ -100,7 +100,7 @@ public static class Contact
             if (person.id == "private") return null;
             var url =
                 string.Format(
-                    "https://api.linkedin.com/v1/people/id={0}:(id,headline,first-name,last-name,specialties,summary,industry,picture-url,relation-to-viewer:(related-connections))?oauth2_access_token={1}", person.id, accessToken);
+                    "https://api.linkedin.com/v1/people/id={0}:(id,skills,headline,first-name,last-name,specialties,summary,industry,picture-url,relation-to-viewer:(related-connections))?oauth2_access_token={1}", person.id, accessToken);
             var contacts = api.hit(url);
             var xml = new XmlDocument();
             xml.LoadXml(contacts);
