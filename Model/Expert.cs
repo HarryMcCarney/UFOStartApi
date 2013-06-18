@@ -15,6 +15,8 @@ namespace Model
         [XmlAttribute]
         public string picture { get; set; }
         [XmlAttribute]
+        public string headline { get; set; }
+        [XmlAttribute]
         public string introLinkedinId { get; set; }
         [XmlAttribute]
         public string introFirstName { get; set; }
