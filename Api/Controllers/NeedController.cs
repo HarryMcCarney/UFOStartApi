@@ -58,5 +58,18 @@ namespace UFOStart.Api.Controllers
             return formattedResult(result);
         }
 
+
+        public string popular()
+        {
+            try
+            {
+                result = orm.execObject<Result>(null, "api.need_search_popular");
+            }
+            catch (Exception exp)
+            {
+                errorResult(exp);
+            }
+            return formattedResult(result);
+        }
     }
 }

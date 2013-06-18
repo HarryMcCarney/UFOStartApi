@@ -33,5 +33,18 @@ namespace UFOStart.Api.Controllers
             return formattedResult(result);
         }
 
+        public string newest()
+        {
+            try
+            {
+                result = orm.execObject<Result>(null, "api.product_search_newest");
+            }
+            catch (Exception exp)
+            {
+                errorResult(exp);
+            }
+            return formattedResult(result);
+        }
+
     }
 }
