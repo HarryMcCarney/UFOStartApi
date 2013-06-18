@@ -23,6 +23,9 @@ namespace Model
         public string companySlug { get; set; }
         [XmlAttribute]
         public string need { get; set; }
+        [XmlAttribute]
+        public string needToken { get; set; }
+
 
         
     }
