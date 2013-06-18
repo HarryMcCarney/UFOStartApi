@@ -47,7 +47,7 @@ namespace UFOStart.Api.Controllers
                     if (user.Profile[0].type == "LI")
                     {
                         user.token = myresult.User.token;
-                        new Task(() => SaveSkills.save(user)).Start();
+                        new Task(() => SaveLinkedInDetails.save(user)).Start();
                     }
                 }
                 

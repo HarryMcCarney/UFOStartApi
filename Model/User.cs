@@ -31,6 +31,8 @@ namespace UFOStart.Model
         public List<Application> Applications { get; set; }
         [XmlElement]
         public List<Skill> Skills { get; set; }
+        [XmlAttribute]
+        public string headline { get; set; }
 
     }
 }

@@ -39,7 +39,7 @@ public static class Contact
         {
             var url =
                 string.Format(
-                    "https://api.linkedin.com/v1/people/id={0}:(id,skills)?oauth2_access_token={1}", id,  accessToken);
+                    "https://api.linkedin.com/v1/people/id={0}:(id,skills,positions,headline,summary)?oauth2_access_token={1}", id, accessToken);
             var contact = api.hit(url);
             var xml = new XmlDocument();
             xml.LoadXml(contact);
@@ -52,6 +52,24 @@ public static class Contact
         }
     }
 
+    public static string getHeadline(string id, string accessToken)
+    {
+        try
+        {
+            var url =
+                string.Format(
+                    "https://api.linkedin.com/v1/people/id={0}:(id,headline)?oauth2_access_token={1}", id, accessToken);
+            var contact = api.hit(url);
+            var xml = new XmlDocument();
+            xml.LoadXml(contact);
+            var contactObj = api.deserialise(xml, new Person());
+            return contactObj.headline;
+        }
+        catch (Exception exp)
+        {
+            return null;
+        }
+    }
 
     public static PeopleSeach getContacts(Need need, string accessToken)
     {
@@ -95,6 +113,8 @@ public static class Contact
             throw;
         }
     }
+
+  
 
     }
 }
