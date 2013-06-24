@@ -142,6 +142,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Result.cs" />
     <Compile Include="Services\Messaging\CompanyInviteEmail.cs" />
+    <Compile Include="Services\Messaging\MentorApproveEmail.cs" />
+    <Compile Include="Services\Messaging\MessageHelpers.cs" />
     <Compile Include="Services\Messaging\RoundCreate.cs" />
     <Compile Include="Services\Messaging\WelcomeEmail.cs" />
     <Compile Include="Services\Round\FulfilRound.cs" />

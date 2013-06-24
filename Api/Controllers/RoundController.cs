@@ -122,6 +122,22 @@ namespace UFOStart.Api.Controllers
             return formattedResult(result);
         }
 
+        public string sendMentor(Round round)
+        {
+            try
+            {
+                result = orm.execObject<Result>(round, "api.round_send_to_mentor");
+                MessageHelpers.sendMentorRoundMail(((Result)result).Company);
+            }
+            catch (Exception exp)
+            {
+                errorResult(exp);
+            }
+            return formattedResult(result);
+        }
+
+
+
     }
 }
 
