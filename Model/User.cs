@@ -33,6 +33,8 @@ namespace UFOStart.Model
         public List<Skill> Skills { get; set; }
         [XmlAttribute]
         public string headline { get; set; }
+        [XmlAttribute]
+        public string role { get; set; }
 
     }
 }
