@@ -27,6 +27,8 @@ namespace Model
         public string need { get; set; }
         [XmlAttribute]
         public string needToken { get; set; }
+        [XmlAttribute]
+        public bool approved { get; set; }
 
 
         
