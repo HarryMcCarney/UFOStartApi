@@ -5,11 +5,11 @@ namespace UFOStart.Api.Services.Messaging
 {
     public class ApplicationFounderEmail : IMessage
     {
-        private readonly string name;
-        private readonly string needName;
-        private readonly string applicantName;
-        private readonly string company;
-        private readonly string roundLink;
+        public string name;
+        public string needName;
+        public string applicantName;
+        public string company;
+        public string roundLink;
 
         public string id { get; set; }
         public string type { get; set; }
