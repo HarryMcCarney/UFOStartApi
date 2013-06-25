@@ -50,6 +50,10 @@ namespace Model
         public Application Application { get; set; }
         [XmlElement]
         public List<Application> Applications { get; set; }
+        [XmlElement]
+        public List<Endorsement> Endorsements { get; set; }
+        [XmlElement]
+        public Endorsement Endorsement { get; set; }
             
     }
 }

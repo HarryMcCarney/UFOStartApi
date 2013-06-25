@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using HackandCraft.Api;
 using Model;
 using UFOStart.Api.Services.Messaging;
+using UFOStart.Api.Services.Round;
 using UFOStart.Model;
 using mandrill.net;
 
@@ -128,6 +129,20 @@ namespace UFOStart.Api.Controllers
             {
                 result = orm.execObject<Result>(round, "api.round_send_to_mentor");
                 MessageHelpers.sendMentorRoundMail(((Result)result).Company);
+            }
+            catch (Exception exp)
+            {
+                errorResult(exp);
+            }
+            return formattedResult(result);
+        }
+
+
+        public string endorse(Need need)
+        {
+            try
+            {
+                result = CreateEndorsement.endorse(need);
             }
             catch (Exception exp)
             {

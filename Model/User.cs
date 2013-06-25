@@ -35,6 +35,8 @@ namespace UFOStart.Model
         public string headline { get; set; }
         [XmlAttribute]
         public string role { get; set; }
+        [XmlAttribute]
+        public string endorserToken { get; set; }
 
     }
 }

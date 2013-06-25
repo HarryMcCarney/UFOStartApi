@@ -15,12 +15,12 @@ namespace Model
         [XmlAttribute]
         public string token { get; set; }
   
-        [XmlElement (ElementName = "Needs")]
+        [XmlElement]
         public List<Need> Needs { get; set; }
 
-        [XmlElement(ElementName = "Users")]
+        [XmlElement]
         public List<User> Users { get; set; }
-        [XmlElement(ElementName = "Pledges")]
+        [XmlElement]
         public List<Pledge> Pledges { get; set; }
         [XmlElement]
         public Pledge Pledge { get; set; }
@@ -33,6 +33,7 @@ namespace Model
 
         [XmlAttribute]
         public string status { get; set; }
+
   
 
     }
