@@ -82,8 +82,8 @@ namespace UFOStart.Api.Controllers
             {
                 result = orm.execObject<Result>(user, "api.user_profile");
                 var myUser = ((Result) result).User;
-                 new UserStartupValue(myUser).save();
-                //new Task(() => new UserStartupValue(myUser).save()).Start();
+               
+                new Task(() => new UserStartupValue(myUser).save()).Start();
 
             }
             catch (Exception exp)
