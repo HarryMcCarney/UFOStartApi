@@ -6,7 +6,7 @@ using UFOStart.Model;
 namespace Model
 {
     [Serializable]
-    public class Need
+    public class    Need
     {
         [XmlAttribute]
         public string id { get; set; }

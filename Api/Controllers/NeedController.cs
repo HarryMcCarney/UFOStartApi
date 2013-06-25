@@ -1,6 +1,10 @@
 ﻿using System;
+using System.Linq;
 using HackandCraft.Api;
 using Model;
+using UFOStart.Api.Services;
+using UFOStart.Api.Services.Messaging;
+using mandrill.net;
 
 namespace UFOStart.Api.Controllers
 {
@@ -37,6 +41,39 @@ namespace UFOStart.Api.Controllers
             try
             {
                 result = orm.execObject<Result>(need, "api.need_application");
+
+                //wanna get need name and applicant name fro the result
+                //so first find the rigth need and then the right applicant
+
+                //Get need
+                var fullNeed = (from x in ((Result) result).Round.Needs
+                               where x.token == need.token
+                               select x).ToList()[0];
+
+                var application = (from x in ((Need) fullNeed).Applications
+                                  where x.User.token == need.Application.User.token
+                                  select x).ToList()[0];
+
+                need.name = fullNeed.name;
+                need.Application.User.name = application.User.name;
+
+
+                MessageHelpers.senderFoundApplicationMail(result, need);
+
+
+            }
+            catch (Exception exp)
+            {
+                errorResult(exp);
+            }
+            return formattedResult(result);
+        }
+
+        public string approveApplication(Application application)
+        {
+            try
+            {
+                result = orm.execObject<Result>(application, "api.need_application_approve");
             }
             catch (Exception exp)
             {

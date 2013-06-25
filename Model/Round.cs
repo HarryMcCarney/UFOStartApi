@@ -7,7 +7,7 @@ using UFOStart.Model;
 namespace Model
 {
     [Serializable]
-    public class Round
+    public class Round  
     {
         [XmlAttribute]
         public string start { get; set; }

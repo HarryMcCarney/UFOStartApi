@@ -7,6 +7,8 @@ namespace Model
     [Serializable]
     public class Application
     {
+        [XmlAttribute]
+        public string token { get; set; }
         [XmlElement]
         public User User { get; set; }
         [XmlAttribute]
