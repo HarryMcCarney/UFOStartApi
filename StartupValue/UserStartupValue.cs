@@ -55,12 +55,14 @@ namespace StartupValue
 
         private void calculateSkills()
         {
-            startUpValue += person.skillTags.Count * 1000;
+            if (person.skillTags != null)
+                startUpValue += person.skillTags.Count * 1000;
         }
 
         private void calculateInterests()
         {
-            startUpValue += new List<string>(person.interests.Split(',')).Count * 1000;
+            if (person.interests != null)
+                startUpValue += new List<string>(person.interests.Split(',')).Count * 1000;
         }
 
         private void calculateContacts()

@@ -73,7 +73,18 @@ namespace UFOStart.LinkedIn
         [XmlIgnore]
         public string interests
         {
-            get { return Interests.value; }
+            get
+            {
+                try
+                {
+
+                    return Interests.value;
+                }
+                catch (Exception exp)
+                {
+                    return null;
+                }
+            }
             set { }
         }
 
