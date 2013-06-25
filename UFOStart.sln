@@ -16,6 +16,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UFOStart.MailQueue", "UFOSt
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UFOStart.LinkedIn", "LinkedIn\UFOStart.LinkedIn.csproj", "{299E0DBD-FB9C-48F0-ABB2-0F72AE8C6E2F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StartupValue", "StartupValue\StartupValue.csproj", "{57116D46-8F82-4005-AA8F-5B482D7832E9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApplication1", "..\ConsoleApplication1\ConsoleApplication1.csproj", "{06FF4D45-4216-464F-B922-7C02CDAF13F2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -38,6 +42,14 @@ Global
 		{299E0DBD-FB9C-48F0-ABB2-0F72AE8C6E2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{299E0DBD-FB9C-48F0-ABB2-0F72AE8C6E2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{299E0DBD-FB9C-48F0-ABB2-0F72AE8C6E2F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57116D46-8F82-4005-AA8F-5B482D7832E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57116D46-8F82-4005-AA8F-5B482D7832E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57116D46-8F82-4005-AA8F-5B482D7832E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57116D46-8F82-4005-AA8F-5B482D7832E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{06FF4D45-4216-464F-B922-7C02CDAF13F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06FF4D45-4216-464F-B922-7C02CDAF13F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06FF4D45-4216-464F-B922-7C02CDAF13F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06FF4D45-4216-464F-B922-7C02CDAF13F2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

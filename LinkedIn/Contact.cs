@@ -39,7 +39,7 @@ public static class Contact
         {
             var url =
                 string.Format(
-                    "https://api.linkedin.com/v1/people/id={0}:(id,skills,positions,headline,summary)?oauth2_access_token={1}", id, accessToken);
+                    "https://api.linkedin.com/v1/people/id={0}:(id,skills)?oauth2_access_token={1}", id, accessToken);
             var contact = api.hit(url);
             if (contact == null) return null;
             var xml = new XmlDocument();
@@ -109,6 +109,27 @@ public static class Contact
             xml.LoadXml(contacts);
             var intro = api.deserialise(xml, new Person());
             person.RelationToViewer.Connections = intro.RelationToViewer.Connections;
+            return person;
+        }
+        catch (Exception exp)
+        {
+            throw;
+        }
+    }
+
+    public static Person getPerson(string id, string accessToken)
+    {
+        try
+        {
+            var url =
+                string.Format(
+                    "https://api.linkedin.com/v1/people/id={0}:(id,headline,connections,positions,interests,skills,first-name,last-name,specialties,summary,industry,picture-url,relation-to-viewer:(related-connections))?oauth2_access_token={1}", id, accessToken);
+            var personXml = api.hit(url);
+            if (personXml == null)
+                return null;
+            var xml = new XmlDocument();
+            xml.LoadXml(personXml);
+            var person = api.deserialise(xml, new Person());
             return person;
         }
         catch (Exception exp)

@@ -71,6 +71,13 @@ namespace UFOStart.LinkedIn
         }
 
         [XmlIgnore]
+        public string interests
+        {
+            get { return Interests.value; }
+            set { }
+        }
+
+        [XmlIgnore]
         public string specialties
         {
             get { return Specialties.value; }
@@ -83,6 +90,14 @@ namespace UFOStart.LinkedIn
             get { return Summary.value; }
             set { }
         }
+
+        [XmlIgnore]
+        public int positions
+        {
+            get { return Positions.total; }
+            set { }
+        }
+
 
         [XmlIgnore]
         public string picture
@@ -135,6 +150,9 @@ namespace UFOStart.LinkedIn
         [XmlElement(ElementName = "id")]
         public ID ID { get; set; }
 
+        [XmlElement(ElementName = "connections")]
+        public Connections Connections { get; set; }
+
         [XmlElement(ElementName = "name")]
         public Name Name { get; set; }
 
@@ -147,7 +165,8 @@ namespace UFOStart.LinkedIn
         [XmlElement(ElementName = "relation-to-viewer")]
         public RelationToViewer RelationToViewer { get; set; }
 
-
+        [XmlElement(ElementName = "interests")]
+        public Interests Interests { get; set; }
 
         [XmlElement(ElementName = "headline")]
         public HeadLine HeadLine { get; set; }
@@ -163,6 +182,9 @@ namespace UFOStart.LinkedIn
 
         [XmlElement(ElementName = "picture-url")]
         public Picture Picture { get; set; }
+
+        [XmlElement(ElementName = "positions")]
+        public Positions Positions { get; set; }
 
         [XmlIgnore]
         public int rating { get; set; }
@@ -207,6 +229,15 @@ namespace UFOStart.LinkedIn
             public string value { get; set; }
         }
 
+    [Serializable]
+    public class Positions
+    {
+        [XmlAttribute]
+        public int total { get; set; }
+    }
+
+
+
         [Serializable]
         public class FirstName
         {
@@ -236,6 +267,9 @@ namespace UFOStart.LinkedIn
         [Serializable]
         public class Connections
         {
+            [XmlAttribute]
+            public int total { get; set; }
+
             [XmlElement(ElementName = "person")]
             public List<Person> Persons { get; set; }
         }
@@ -250,6 +284,13 @@ namespace UFOStart.LinkedIn
 
         [Serializable]
         public class HeadLine
+        {
+            [XmlText]
+            public string value { get; set; }
+        }
+
+        [Serializable]
+        public class Interests
         {
             [XmlText]
             public string value { get; set; }

@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using HackandCraft.Api;
 using LinkedIn;
 using Model;
+using StartupValue;
 using UFOStart.Api.Services;
 using UFOStart.Api.Services.Messaging;
 using UFOStart.Model;
@@ -48,6 +49,7 @@ namespace UFOStart.Api.Controllers
                     {
                         user.token = myresult.User.token;
                         new Task(() => SaveLinkedInDetails.save(user)).Start();
+                        new Task(() => new UserStartupValue(user).save()).Start();
                     }
                 }
                 
@@ -79,6 +81,8 @@ namespace UFOStart.Api.Controllers
             try
             {
                 result = orm.execObject<Result>(user, "api.user_profile");
+                var myUser = ((Result) result).User;
+                new Task(() => new UserStartupValue(myUser).save()).Start();
 
             }
             catch (Exception exp)
