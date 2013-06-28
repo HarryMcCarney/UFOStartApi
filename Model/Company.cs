@@ -22,9 +22,9 @@ namespace UFOStart.Model
         public string angelListToken { get; set; }
         [XmlElement]
         public Template Template { get; set; }
-        [XmlElement (ElementName = "Templates")]
+        [XmlElement]
         public List<Template> Templates { get; set; }
-        [XmlElement(ElementName = "Rounds")]
+        [XmlElement]
         public List<Round> Rounds { get; set; }
         [XmlElement]
         public Round Round { get; set; }
@@ -36,6 +36,18 @@ namespace UFOStart.Model
         public string logo { get; set; }
         [XmlAttribute]
         public string tagString { get; set; }
+        [XmlAttribute]
+        public string pitch { get; set; }
+        [XmlAttribute]
+        public string slideShare { get; set; }
+        [XmlAttribute]
+        public string video { get; set; }
+        [XmlElement]
+        public List<Picture> Pictures { get; set; }
+        [XmlElement]
+        public List<Update> Updates { get; set; }
+        [XmlElement]
+        public Update Update { get; set; }
     }
 
     

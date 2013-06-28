@@ -53,8 +53,6 @@ namespace UFOStart.Api.Controllers
                    var task = new Task(() => new FulfilRound(myResult.User.Company.Round).fulfil());
                     task.Start();
                 }
-                
-
             }
             catch (Exception exp)
             {
@@ -64,11 +62,11 @@ namespace UFOStart.Api.Controllers
         }
 
 
-        public string edit(User user)
+        public string edit(Company  company)
         {
             try
             {
-                result = orm.execObject<Result>(user, "api.company_create");
+                result = orm.execObject<Result>(company, "api.company_edit");
 
             }
             catch (Exception exp)
@@ -138,6 +136,20 @@ namespace UFOStart.Api.Controllers
             try
             {
                 result = orm.execObject<Result>(invite, "api.invite_accept");
+
+            }
+            catch (Exception exp)
+            {
+                errorResult(exp);
+            }
+            return formattedResult(result);
+        }
+
+        public string update(Company company)
+        {
+            try
+            {
+                result = orm.execObject<Result>(company, "api.company_update");
 
             }
             catch (Exception exp)
