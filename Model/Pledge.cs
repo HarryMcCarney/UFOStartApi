@@ -21,6 +21,8 @@ namespace Model
         public string offerDescription { get; set; }
         [XmlAttribute]
         public string comment { get; set; }
+        [XmlAttribute]
+        public string created { get; set; }
 
 
     }
