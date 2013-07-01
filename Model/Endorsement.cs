@@ -32,10 +32,9 @@ namespace Model
         public string created { get; set; }
         [XmlAttribute]
         public string companySlug { get; set; }
-
-
-
-        
-
+        [XmlAttribute]
+        public string companyName { get; set; }
+        [XmlAttribute]
+        public string endorseeLinkedinId { get; set; }
     }
 }
