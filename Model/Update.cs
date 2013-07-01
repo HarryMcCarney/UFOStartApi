@@ -13,6 +13,8 @@ namespace Model
         [XmlAttribute]
         public string userHeadline { get; set; }
         [XmlAttribute]
+        public string userPicture { get; set; }
+        [XmlAttribute]
         public string text { get; set; }
         [XmlAttribute]
         public string created { get; set; }
