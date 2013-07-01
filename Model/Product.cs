@@ -19,6 +19,8 @@ namespace Model
         public string video { get; set; }
         [XmlElement]
         public List<Offer> Offers { get; set; }
+        [XmlElement]
+        public List<Picture> Pictures { get; set; }
     }
 }
 

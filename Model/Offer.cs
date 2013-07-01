@@ -8,7 +8,14 @@ namespace Model
     public  class Offer
     {
        [XmlAttribute]
-       public string name { get; set; }
- 
+       public string description { get; set; }
+       [XmlAttribute]
+       public string price { get; set; }
+       [XmlAttribute]
+       public string stock { get; set; }
+       [XmlAttribute]
+       public string created { get; set; }
+       [XmlAttribute]
+       public string token { get; set; }
     }
 }
