@@ -28,6 +28,8 @@ namespace Model
         [XmlAttribute]
         public string needToken { get; set; }
         [XmlAttribute]
+        public string needSlug { get; set; }
+        [XmlAttribute]
         public bool approved { get; set; }
 
 

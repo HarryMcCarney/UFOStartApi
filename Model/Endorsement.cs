@@ -23,6 +23,14 @@ namespace Model
         [XmlAttribute]
         public string endorseeLinkedinId { get; set; }
 
+        [XmlAttribute]
+        public string needName { get; set; }
+
+
+        [XmlAttribute]
+        public string needSlug { get; set; }
+
+
         
 
     }

@@ -40,6 +40,9 @@ namespace UFOStart.Model
         [XmlAttribute]
         public int startupValue { get; set; }
 
+        [XmlElement]
+        public List<Endorsement> Endorsements { get; set; }
+
 
     }
 }
