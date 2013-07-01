@@ -42,6 +42,9 @@ namespace UFOStart.Api
         public List<Tag> Tags { get; set; }
         [XmlElement]
         public List<Company> Companies { get; set; }
+        [XmlElement]
+        public Mentors Mentors { get; set; }
+
 
     }
 }
