@@ -20,5 +20,8 @@ namespace Model
         [XmlElement]
         public Pledge Pledge { get; set; }
 
+        [XmlElement]
+        public Company Company { get; set; }
+
     }
 }

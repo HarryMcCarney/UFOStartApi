@@ -12,6 +12,8 @@ namespace Model
         public string amount { get; set; }
         [XmlAttribute]
         public string valuation { get; set; }
+        [XmlAttribute]
+        public string description { get; set; }
         [XmlElement]
         public List<Investment> Investments { get; set; }
         [XmlElement]
