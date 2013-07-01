@@ -33,6 +33,8 @@ namespace UFOStart.Api
 
         [XmlElement(ElementName = "Needs")]
         public List<Need> Needs { get; set; }
+        [XmlElement]
+        public Need Need { get; set; }
 
         [XmlElement]
         public Company Company { get; set; }
