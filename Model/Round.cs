@@ -33,6 +33,8 @@ namespace Model
 
         [XmlAttribute]
         public string status { get; set; }
+        [XmlElement]
+        public Funding Funding { get; set; }
 
   
 
