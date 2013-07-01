@@ -34,7 +34,6 @@ namespace Model
         public string companySlug { get; set; }
         [XmlAttribute]
         public string companyName { get; set; }
-        [XmlAttribute]
-        public string endorseeLinkedinId { get; set; }
+
     }
 }
