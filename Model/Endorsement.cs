@@ -22,13 +22,17 @@ namespace Model
         public string endorseeSkills { get; set; }
         [XmlAttribute]
         public string endorseeLinkedinId { get; set; }
-
-        [XmlAttribute]
-        public string needName { get; set; }
-
-
         [XmlAttribute]
         public string needSlug { get; set; }
+        [XmlAttribute]
+        public string needName { get; set; }
+        [XmlAttribute]
+        public string endorserHeadline { get; set; }
+        [XmlAttribute]
+        public string created { get; set; }
+        [XmlAttribute]
+        public string companySlug { get; set; }
+
 
 
         
