@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Activity.cs" />
     <Compile Include="Application.cs" />
     <Compile Include="Company.cs" />
     <Compile Include="Endorsement.cs" />
@@ -50,6 +51,7 @@
     <Compile Include="Investment.cs" />
     <Compile Include="Invite.cs" />
     <Compile Include="Invites.cs" />
+    <Compile Include="Item.cs" />
     <Compile Include="Need.cs" />
     <Compile Include="Offer.cs" />
     <Compile Include="Picture.cs" />

@@ -109,6 +109,18 @@ namespace UFOStart.Api.Controllers
             return formattedResult(result);
         }
 
+        public string activity(Round round)
+        {
+            try
+            {
+                result = orm.execObject<Result>(round, "api.round_activity");
+            }
+            catch (Exception exp)
+            {
+                errorResult(exp);
+            }
+            return formattedResult(result);
+        }
 
 
         public string publish(Round round)
