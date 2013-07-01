@@ -33,6 +33,19 @@ namespace UFOStart.Api.Controllers
             return formattedResult(result);
         }
 
+        public string offerDelete(Offer offer)
+        {
+            try
+            {
+                result = orm.execObject<Result>(offer, "api.company_product_offer_delete");
+            }
+            catch (Exception exp)
+            {
+                errorResult(exp);
+            }
+            return formattedResult(result);
+        }
+
         public string newest()
         {
             try
