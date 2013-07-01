@@ -18,7 +18,7 @@ namespace Model
         [XmlAttribute]
         public string offerToken { get; set; }
         [XmlAttribute]
-        public string offerDescription { get; set; }
+        public string offerName { get; set; }
         [XmlAttribute]
         public string comment { get; set; }
         [XmlAttribute]

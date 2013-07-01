@@ -17,5 +17,7 @@ namespace Model
        public string created { get; set; }
        [XmlAttribute]
        public string token { get; set; }
+       [XmlAttribute]
+       public string name { get; set; }
     }
 }
