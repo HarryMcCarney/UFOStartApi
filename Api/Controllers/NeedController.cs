@@ -73,6 +73,10 @@ namespace UFOStart.Api.Controllers
             try
             {
                 result = orm.execObject<Result>(application, "api.need_application_approve");
+                var user = ((Result) result).User;
+                var myapplication = ((Result) result).Application;
+                MessageHelpers.senderApplicationAcceptedmail(user, myapplication);
+
             }
             catch (Exception exp)
             {

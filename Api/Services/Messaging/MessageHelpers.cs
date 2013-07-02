@@ -46,5 +46,13 @@ namespace UFOStart.Api.Services
             }
         }
 
+
+        public static void senderApplicationAcceptedmail(User user, Application application)
+        {
+            var roundLink = string.Format("{0}{1}{2}/1/", Globals.Instance.settings["RootUrl"], Globals.Instance.settings["CompanyRoute"], application.companySlug);
+            Mail.enqueue(new ApplicationAcceptedEmail(user.email, user.name, application.need, application.companyName, roundLink));
+            
+        }
+
     }
 }

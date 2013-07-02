@@ -44,6 +44,8 @@ namespace UFOStart.Api
         public List<Company> Companies { get; set; }
         [XmlElement]
         public Mentors Mentors { get; set; }
+        [XmlElement]
+        public Application Application { get; set; }
 
 
     }
