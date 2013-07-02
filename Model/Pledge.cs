@@ -23,6 +23,8 @@ namespace Model
         public string comment { get; set; }
         [XmlAttribute]
         public string created { get; set; }
+        [XmlAttribute]
+        public string companySlug { get; set; }
 
 
     }

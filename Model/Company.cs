@@ -48,6 +48,12 @@ namespace UFOStart.Model
         public List<Update> Updates { get; set; }
         [XmlElement]
         public Update Update { get; set; }
+        [XmlElement]
+        public User User { get; set; }
+        [XmlAttribute]
+        public string roundTemplateName { get; set; }
+        [XmlElement]
+        public List<User> Mentors { get; set; }
     }
 
     
