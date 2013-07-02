@@ -5,9 +5,9 @@ namespace UFOStart.Api.Services.Messaging
 {
     public class MentorApproveEmail : IMessage
     {
-        private readonly string name;
-        private readonly string company;
-        private readonly string roundLink;
+        public string name { get; set; }
+        public string company { get; set; }
+        public string roundLink { get; set; }
 
         public string id { get; set; }
         public string type { get; set; }

@@ -20,7 +20,8 @@ namespace UFOStart.Api.Services
             var email = mentor.email;
             var name = mentor.name;
             var companyName = company.name;
-            var roundLink = string.Format("{0}{1}{2}", Globals.Instance.settings["RootUrl"], Globals.Instance.settings["CompanyRoute"], company.slug);
+            //todo this is very dirty
+            var roundLink = string.Format("{0}{1}{2}/1/", Globals.Instance.settings["RootUrl"], Globals.Instance.settings["CompanyRoute"], company.slug);
 
             Mail.enqueue(new MentorApproveEmail(email, name, companyName, roundLink));
         }
@@ -36,6 +37,7 @@ namespace UFOStart.Api.Services
             var founders =
                  (from x in company.Users
                   where x.role == "FOUNDER"
+                  && !x.unconfirmed
                   select x).ToList();
 
             foreach (var f in founders)

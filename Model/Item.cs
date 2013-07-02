@@ -23,5 +23,8 @@ namespace Model
         [XmlElement]
         public Company Company { get; set; }
 
+        [XmlElement]
+        public User Invitor { get; set; }
+
     }
 }

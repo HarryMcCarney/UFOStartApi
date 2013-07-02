@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Linq;
-using System.Threading.Tasks;
 using HackandCraft.Api;
 using Model;
 using UFOStart.Api.Services;
-using UFOStart.Api.Services.Messaging;
-using mandrill.net;
 
 namespace UFOStart.Api.Controllers
 {

@@ -5,24 +5,23 @@ namespace UFOStart.Api.Services.Messaging
 {
     public class ApplicationFounderEmail : IMessage
     {
-        public string name;
-        public string needName;
-        public string applicantName;
-        public string company;
-        public string roundLink;
+        public string name { get; set; }
+        public string needName { get; set; }
+        public string applicantName { get; set; }
+        public string roundLink { get; set; }
 
         public string id { get; set; }
         public string type { get; set; }
         public string template { get; set; }
         public string recipient { get; set; }
 
-        public ApplicationFounderEmail(string recipient, string name, string _needName, string _applicantName, string roundLink)
+        public ApplicationFounderEmail(string _recipient, string _name, string _needName, string _applicantName, string _roundLink)
         {
-            this.recipient = recipient;
-            this.name = name;
+            recipient = _recipient;
+            name = _name;
             needName = _needName;
             applicantName = _applicantName;
-            this.roundLink = roundLink;
+            roundLink = _roundLink;
             template = "ApplicationFounder";
             id = Guid.NewGuid().ToString();
             type = "EMAIL";
