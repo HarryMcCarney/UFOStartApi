@@ -54,6 +54,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\HackandCraft.Config.1.0.76\lib\net40\HackandCraft.Config.dll</HintPath>
     </Reference>
+    <Reference Include="HackandCraft.DBVC, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\HackandCraft.DBVC.1.0.76\lib\net45\HackandCraft.DBVC.dll</HintPath>
+    </Reference>
     <Reference Include="HackandCraft.Mail">
       <HintPath>..\packages\HackandCraft.Mail.1.0.76\lib\net40\HackandCraft.Mail.dll</HintPath>
     </Reference>
