@@ -11,6 +11,7 @@ namespace UFOStart.Api.Controllers
             try
             {
                 result = orm.execObject<Result>(round, "api.round_funding_target");
+
             }
             catch (Exception exp)
             {
