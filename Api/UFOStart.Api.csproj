@@ -176,10 +176,6 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\HackandCraft\HackandCraft\HackandCraft.DBVC\HackandCraft.DBVC.csproj">
-      <Project>{1bf5e3e2-2f4d-47cd-836f-b876b8781a90}</Project>
-      <Name>HackandCraft.DBVC</Name>
-    </ProjectReference>
     <ProjectReference Include="..\LinkedIn\UFOStart.LinkedIn.csproj">
       <Project>{299E0DBD-FB9C-48F0-ABB2-0F72AE8C6E2F}</Project>
       <Name>UFOStart.LinkedIn</Name>
