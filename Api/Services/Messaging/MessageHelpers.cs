@@ -15,15 +15,26 @@ namespace UFOStart.Api.Services
         public static void sendMentorRoundMail(Company company)
         {
 
-            var mentor = (from x in company.Users where x.role == "MENTOR" select x).Take(1).ToList()[0];
-
-            var email = mentor.email;
-            var name = mentor.name;
+            var mentor = (from x in company.Users where x.role == "MENTOR" select x).Take(1).ToList();
             var companyName = company.name;
-            //todo this is very dirty
-            var roundLink = string.Format("{0}{1}{2}/1/", Globals.Instance.settings["RootUrl"], Globals.Instance.settings["CompanyRoute"], company.slug);
 
-            Mail.enqueue(new MentorApproveEmail(email, name, companyName, roundLink));
+            foreach (var m in mentor)
+            {
+                var email = m.email;
+                var name = m.name;
+
+
+                string link;
+                if (m.unconfirmed)
+                    link = string.Format("{0}{1}{2}", Globals.Instance.settings["RootUrl"], Globals.Instance.settings["CompanyInvite"], m.inviteToken);
+                else
+                {
+                    link = string.Format("{0}{1}{2}/1/", Globals.Instance.settings["RootUrl"], Globals.Instance.settings["CompanyRoute"], company.slug);
+                }
+
+                Mail.enqueue(new MentorApproveEmail(email, name, companyName, link));
+            }
+          
         }
 
 
