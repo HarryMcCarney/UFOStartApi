@@ -43,7 +43,6 @@ namespace UFOStart.Model
         public int startupValue { get; set; }
         [XmlAttribute]
         public string inviteToken { get; set; }
-
         [XmlElement]
         public List<Endorsement> Endorsements { get; set; }
 
