@@ -38,6 +38,8 @@ namespace UFOStart.Model
         [XmlAttribute]
         public string endorserToken { get; set; }
         [XmlAttribute]
+        public string slug { get; set; }
+        [XmlAttribute]
         public int startupValue { get; set; }
         [XmlAttribute]
         public int inviteToken { get; set; }
