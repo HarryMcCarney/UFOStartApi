@@ -54,10 +54,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\HackandCraft.Config.1.0.76\lib\net40\HackandCraft.Config.dll</HintPath>
     </Reference>
-    <Reference Include="HackandCraft.DBVC, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\HackandCraft.DBVC.1.0.76\lib\net45\HackandCraft.DBVC.dll</HintPath>
-    </Reference>
     <Reference Include="HackandCraft.Mail">
       <HintPath>..\packages\HackandCraft.Mail.1.0.76\lib\net40\HackandCraft.Mail.dll</HintPath>
     </Reference>
@@ -180,6 +176,10 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\HackandCraft\HackandCraft\HackandCraft.DBVC\HackandCraft.DBVC.csproj">
+      <Project>{1bf5e3e2-2f4d-47cd-836f-b876b8781a90}</Project>
+      <Name>HackandCraft.DBVC</Name>
+    </ProjectReference>
     <ProjectReference Include="..\LinkedIn\UFOStart.LinkedIn.csproj">
       <Project>{299E0DBD-FB9C-48F0-ABB2-0F72AE8C6E2F}</Project>
       <Name>UFOStart.LinkedIn</Name>

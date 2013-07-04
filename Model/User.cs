@@ -42,7 +42,7 @@ namespace UFOStart.Model
         [XmlAttribute]
         public int startupValue { get; set; }
         [XmlAttribute]
-        public int inviteToken { get; set; }
+        public string inviteToken { get; set; }
 
         [XmlElement]
         public List<Endorsement> Endorsements { get; set; }
