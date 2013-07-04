@@ -124,5 +124,19 @@ namespace UFOStart.Api.Controllers
             }
             return formattedResult(result);
         }
+
+        public string invite(Invite invite)
+        {
+            try
+            {
+                MessageHelpers.inviteToNeedMail(invite);
+                
+            }
+            catch (Exception exp)
+            {
+                errorResult(exp);
+            }
+            return formattedResult(result);
+        }
     }
 }

@@ -24,5 +24,7 @@ namespace Model
         public string userToken { get; set; }
         [XmlAttribute]
         public string role { get; set; }
+        [XmlElement]
+        public Need Need { get; set; }
     }
 }

@@ -54,5 +54,12 @@ namespace UFOStart.Api.Services
             
         }
 
+        public static void inviteToNeedMail(Invite invite)
+        {
+            var needLink = string.Format("{0}{1}{2}/1/{3}", Globals.Instance.settings["RootUrl"], Globals.Instance.settings["CompanyRoute"], invite.companySlug, invite.Need.slug);
+            Mail.enqueue(new InviteNeedEmail(invite.email, invite.name, invite.invitorName, invite.Need.name,invite.companyName, needLink));
+
+        }
+
     }
 }

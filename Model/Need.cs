@@ -56,6 +56,8 @@ namespace Model
         public List<Endorsement> Endorsements { get; set; }
         [XmlElement]
         public Endorsement Endorsement { get; set; }
+        [XmlElement]
+        public User Invite { get; set; }
             
     }
 }
