@@ -19,6 +19,21 @@ namespace UFOStart.Api.Controllers
             return formattedResult(result);
         }
 
+
+        public string edit(Round round)
+        {
+            try
+            {
+                result = orm.execObject<Result>(round, "api.round_funding_target");
+            }
+            catch (Exception exp)
+            {
+                errorResult(exp);
+            }
+            return formattedResult(result);
+        }
+
+
         public string invest(Round round)
         {
             try
