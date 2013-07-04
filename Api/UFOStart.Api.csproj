@@ -185,7 +185,7 @@
       <Name>UFOStart.LinkedIn</Name>
     </ProjectReference>
     <ProjectReference Include="..\Model\UFOStart.Model.csproj">
-      <Project>{68B9F4F4-CE8C-4937-AFD9-3FC48520A162}</Project>
+      <Project>{68b9f4f4-ce8c-4937-afd9-3fc48520a162}</Project>
       <Name>UFOStart.Model</Name>
     </ProjectReference>
     <ProjectReference Include="..\StartupValue\StartupValue.csproj">

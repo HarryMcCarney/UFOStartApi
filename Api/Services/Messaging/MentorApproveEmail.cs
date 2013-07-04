@@ -23,7 +23,6 @@ namespace UFOStart.Api.Services.Messaging
             template = "MentorApprove";
             id = Guid.NewGuid().ToString();
             type = "EMAIL";
-         
         }
 
 
