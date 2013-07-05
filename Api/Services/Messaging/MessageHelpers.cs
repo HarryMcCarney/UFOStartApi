@@ -44,7 +44,7 @@ namespace UFOStart.Api.Services
             var round = ((Result)result).Round;
             var orm = new Orm();
             var company = orm.execObject<Result>(round, "api.company_get_from_round").Company;
-            var roundLink = string.Format("{0}{1}{2}", Globals.Instance.settings["RootUrl"], Globals.Instance.settings["CompanyRoute"], company.slug);
+            var roundLink = string.Format("{0}{1}{2}/1/{3}", Globals.Instance.settings["RootUrl"], Globals.Instance.settings["CompanyRoute"], company.slug,need.slug);
             var founders =
                  (from x in company.Users
                   where x.role == "FOUNDER"

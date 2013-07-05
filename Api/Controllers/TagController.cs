@@ -19,5 +19,18 @@ namespace UFOStart.Api.Controllers
             return formattedResult(result);
         }
 
+        public string top20(Tag tag)
+        {
+            try
+            {
+                result = orm.execObject<Result>(tag, "api.tag_top_20");
+            }
+            catch (Exception exp)
+            {
+                errorResult(exp);
+            }
+            return formattedResult(result);
+        }
+
     }
 }
