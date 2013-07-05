@@ -130,6 +130,8 @@ namespace UFOStart.Api.Controllers
             try
             {
                 MessageHelpers.inviteToNeedMail(invite);
+
+                result = new Result(){status = 0};
                 
             }
             catch (Exception exp)
