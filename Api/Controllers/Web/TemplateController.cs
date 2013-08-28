@@ -1,16 +1,22 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
 using HackandCraft.Api;
 using Model;
 
-namespace UFOStart.Api.Controllers
+namespace UFOStart.Api.Controllers.Web
 {
-    public class TagController : HackandCraftController
+    public class TemplateController : HackandCraftController
     {
-        public string search(Tag tag)
+        
+        public string index(Template template)
         {
             try
             {
-                result = orm.execObject<Result>(tag, "api.tag_search");
+                result = orm.execObject<Result>(template, "api.user_get_template_needs");
+
             }
             catch (Exception exp)
             {
@@ -19,11 +25,12 @@ namespace UFOStart.Api.Controllers
             return formattedResult(result);
         }
 
-        public string top20(Tag tag)
+        public string list()
         {
             try
             {
-                result = orm.execObject<Result>(tag, "api.tag_top_20");
+                result = orm.execObject<Result>(null, "api.user_get_templates");
+
             }
             catch (Exception exp)
             {

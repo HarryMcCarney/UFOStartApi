@@ -14,10 +14,19 @@ namespace UFOStart.Api
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
-                name: "Default",
-                url: "{versionNo}/web/{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
-            );
+            "ADMIN", // Route name
+            "{versionNo}/admin/{controller}/{action}/{id}", // URL with parameters
+            new { controller = "Home", action = "Index", id = UrlParameter.Optional },
+            new[] { "UFOStart.Api.Controllers.Admin" });
+
+
+            routes.MapRoute(
+             "WEB", // Route name
+             "{versionNo}/web/{controller}/{action}/{id}", // URL with parameters
+             new { controller = "Home", action = "Index", id = UrlParameter.Optional },
+             new[] { "UFOStart.Api.Controllers.Web" });
+
+
         }
     }
 }

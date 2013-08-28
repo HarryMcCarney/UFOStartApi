@@ -6,7 +6,7 @@ using System.Web.Mvc;
 using HackandCraft.Api;
 using Model;
 
-namespace UFOStart.Api.Controllers
+namespace UFOStart.Api.Controllers.Web
 {
     public class PledgeController : HackandCraftController
     {

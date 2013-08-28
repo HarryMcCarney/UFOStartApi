@@ -16,6 +16,8 @@ namespace Model
         public string picture { get; set; }
         [XmlAttribute]
         public string description { get; set; }
+        [XmlAttribute]
+        public bool active { get; set; }
         [XmlElement]
         public List<Need> Need { get; set; }
     }

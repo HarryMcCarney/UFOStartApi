@@ -1,21 +1,23 @@
-﻿using System;
+﻿using HackandCraft.Api;
+using Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using HackandCraft.Api;
-using Model;
 
-namespace UFOStart.Api.Controllers
+namespace UFOStart.Api.Controllers.Admin
 {
-    public class TemplateController : HackandCraftController
+    public class NeedController : HackandCraftController
     {
-        
-        public string index(Template template)
+        //
+        // GET: /Need/
+
+        public string all()
         {
             try
             {
-                result = orm.execObject<Result>(template, "api.user_get_template_needs");
+                result = orm.execObject<Result>(null, "api.admin_get_needs");
 
             }
             catch (Exception exp)
@@ -25,11 +27,11 @@ namespace UFOStart.Api.Controllers
             return formattedResult(result);
         }
 
-        public string list()
+        public string create(Need need)
         {
             try
             {
-                result = orm.execObject<Result>(null, "api.user_get_templates");
+                result = orm.execObject<Result>(need, "api.admin_need_create");
 
             }
             catch (Exception exp)

@@ -10,7 +10,7 @@ using UFOStart.Api.Services.Messaging;
 using UFOStart.Model;
 using mandrill.net;
 
-namespace UFOStart.Api.Controllers
+namespace UFOStart.Api.Controllers.Web
 {
     public class UserController : HackandCraftController
     {

@@ -6,7 +6,7 @@ using UFOStart.Api.Services;
 using UFOStart.Api.Services.Round;
 using UFOStart.Model;
 
-namespace UFOStart.Api.Controllers
+namespace UFOStart.Api.Controllers.Web
 {
     public class RoundController : HackandCraftController
     {

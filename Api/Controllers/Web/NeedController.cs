@@ -4,7 +4,7 @@ using HackandCraft.Api;
 using Model;
 using UFOStart.Api.Services;
 
-namespace UFOStart.Api.Controllers
+namespace UFOStart.Api.Controllers.Web
 {
     public class NeedController : HackandCraftController
     {

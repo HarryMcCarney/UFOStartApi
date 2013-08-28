@@ -1,7 +1,7 @@
 ﻿using System;
 using HackandCraft.Api;
 
-namespace UFOStart.Api.Controllers
+namespace UFOStart.Api.Controllers.Web
 {
     public class MentorController : HackandCraftController
     {
