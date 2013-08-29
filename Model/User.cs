@@ -19,6 +19,8 @@ namespace UFOStart.Model
         [XmlAttribute]
         public string token { get; set; }
         [XmlAttribute]
+        public string interests { get; set; }
+        [XmlAttribute]
         public string type { get; set; }
         [XmlAttribute]
         public bool unconfirmed { get; set; }

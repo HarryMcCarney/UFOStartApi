@@ -117,6 +117,29 @@ public static class Contact
         }
     }
 
+
+    public static string getInterest(string id, string accessToken)
+    {
+        try
+        {
+            var url =
+                string.Format(
+                    "https://api.linkedin.com/v1/people/id={0}:(id,interests)?oauth2_access_token={1}", id, accessToken);
+            var personXml = api.hit(url);
+            if (personXml == null)
+                return null;
+            var xml = new XmlDocument();
+            xml.LoadXml(personXml);
+            var person = api.deserialise(xml, new Person());
+            return person.interests;
+        }
+        catch (Exception exp)
+        {
+            throw;
+        }
+    }
+
+
     public static Person getPerson(string id, string accessToken)
     {
         try
