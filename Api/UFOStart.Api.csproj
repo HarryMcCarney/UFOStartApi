@@ -129,6 +129,7 @@
   <ItemGroup>
     <Compile Include="Controllers\Admin\NeedController.cs" />
     <Compile Include="Controllers\Admin\ServiceController.cs" />
+    <Compile Include="Controllers\Admin\StaticController.cs" />
     <Compile Include="Controllers\Admin\TemplateController.cs" />
     <Compile Include="Controllers\Web\CompanyController.cs" />
     <Compile Include="Controllers\Web\FundingController.cs" />
