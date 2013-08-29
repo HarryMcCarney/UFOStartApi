@@ -57,6 +57,20 @@ namespace UFOStart.Api.Controllers.Admin
             return formattedResult(result);
         }
 
+        public string index(Service service)
+        {
+            try
+            {
+                result = orm.execObject<Result>(service, "api.admin_service_get");
+
+            }
+            catch (Exception exp)
+            {
+                errorResult(exp);
+            }
+            return formattedResult(result);
+        }
+
 
     }
 }

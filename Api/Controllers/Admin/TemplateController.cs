@@ -54,6 +54,20 @@ namespace UFOStart.Api.Controllers.Admin
             return formattedResult(result);
         }
 
+        public string index(Template template)
+        {
+            try
+            {
+                result = orm.execObject<Result>(template, "api.admin_get_template");
+
+            }
+            catch (Exception exp)
+            {
+                errorResult(exp);
+            }
+            return formattedResult(result);
+        }
+
 
        
     }

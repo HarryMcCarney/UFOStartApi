@@ -47,6 +47,8 @@ namespace UFOStart.Api
         [XmlElement]
         public Application Application { get; set; }
         [XmlElement]
+        public Service Service { get; set; }
+        [XmlElement]
         public List<Service> Services { get; set; }
         [XmlElement]
         public Content Content { get; set; }
