@@ -15,6 +15,8 @@ namespace Model
         [XmlAttribute]
         public string picture { get; set; }
         [XmlAttribute]
+        public string logo { get; set; }
+        [XmlAttribute]
         public string description { get; set; }
         [XmlAttribute]
         public bool active { get; set; }
