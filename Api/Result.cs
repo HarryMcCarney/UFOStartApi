@@ -52,6 +52,8 @@ namespace UFOStart.Api
         public List<Service> Services { get; set; }
         [XmlElement]
         public Content Content { get; set; }
+        [XmlElement]
+        public Config Config { get; set; }
 
     }
 }

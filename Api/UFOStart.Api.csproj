@@ -131,6 +131,7 @@
     <Compile Include="Controllers\Admin\ServiceController.cs" />
     <Compile Include="Controllers\Admin\StaticController.cs" />
     <Compile Include="Controllers\Admin\TemplateController.cs" />
+    <Compile Include="Controllers\ConfigController.cs" />
     <Compile Include="Controllers\Web\CompanyController.cs" />
     <Compile Include="Controllers\Web\FundingController.cs" />
     <Compile Include="Controllers\Web\MentorController.cs" />
