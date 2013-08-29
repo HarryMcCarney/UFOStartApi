@@ -46,6 +46,8 @@ namespace UFOStart.Api
         public Mentors Mentors { get; set; }
         [XmlElement]
         public Application Application { get; set; }
+        [XmlElement]
+        public List<Service> Services { get; set; }
 
 
     }

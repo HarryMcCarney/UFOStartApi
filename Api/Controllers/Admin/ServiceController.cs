@@ -8,44 +8,30 @@ using System.Web.Mvc;
 
 namespace UFOStart.Api.Controllers.Admin
 {
-    public class NeedController : HackandCraftController
+    public class ServiceController : HackandCraftController
     {
         //
-        // GET: /Need/
+        // GET: /Service/
+
+        public string create(Service service)
+        {
+            try
+            {
+                result = orm.execObject<Result>(service, "api.admin_service_create");
+
+            }
+            catch (Exception exp)
+            {
+                errorResult(exp);
+            }
+            return formattedResult(result);
+        }
 
         public string all()
         {
             try
             {
-                result = orm.execObject<Result>(null, "api.admin_get_needs");
-
-            }
-            catch (Exception exp)
-            {
-                errorResult(exp);
-            }
-            return formattedResult(result);
-        }
-
-        public string create(Need need)
-        {
-            try
-            {
-                result = orm.execObject<Result>(need, "api.admin_need_create");
-
-            }
-            catch (Exception exp)
-            {
-                errorResult(exp);
-            }
-            return formattedResult(result);
-        }
-
-        public string edit(Need need)
-        {
-            try
-            {
-                result = orm.execObject<Result>(need, "api.admin_need_edit");
+                result = orm.execObject<Result>(null, "api.admin_services_get");
 
             }
             catch (Exception exp)
