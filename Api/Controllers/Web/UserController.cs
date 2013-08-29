@@ -107,6 +107,19 @@ namespace UFOStart.Api.Controllers.Web
             return formattedResult(result);
         }
 
+        public string type(User user)
+        {
+            try
+            {
+                result = orm.execObject<Result>(user, "api.user_type_set");
+            }
+            catch (Exception exp)
+            {
+                errorResult(exp);
+            }
+            return formattedResult(result);
+        }
+
 
         
 

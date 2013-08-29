@@ -19,12 +19,13 @@ namespace UFOStart.Model
         [XmlAttribute]
         public string token { get; set; }
         [XmlAttribute]
+        public string type { get; set; }
+        [XmlAttribute]
         public bool unconfirmed { get; set; }
         [XmlElement]
         public List<Profile> Profile { get; set; }
         [XmlElement]
         public Company Company { get; set; }
-
         [XmlElement]
         public List<Company> Companies { get; set; }
         [XmlElement]
