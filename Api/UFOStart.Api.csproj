@@ -138,6 +138,7 @@
     <Compile Include="Controllers\Web\PledgeController.cs" />
     <Compile Include="Controllers\Web\ProductController.cs" />
     <Compile Include="Controllers\Web\RoundController.cs" />
+    <Compile Include="Controllers\Web\ServiceController.cs" />
     <Compile Include="Controllers\Web\TagController.cs" />
     <Compile Include="Controllers\Web\TemplateController.cs" />
     <Compile Include="Controllers\Web\UserController.cs" />

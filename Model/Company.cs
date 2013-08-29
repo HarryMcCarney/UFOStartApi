@@ -54,6 +54,8 @@ namespace UFOStart.Model
         public string roundTemplateName { get; set; }
         [XmlElement]
         public List<User> Mentors { get; set; }
+        [XmlAttribute]
+        public string currency { get; set; }
     }
 
     
