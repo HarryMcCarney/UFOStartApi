@@ -15,7 +15,7 @@ namespace UFOStart.Api.Services
         {
             var orm = new Orm();
             var connections = Contact.getConnections(user.Profile[0].id, user.Profile[0].accessToken);
-            List<User> ul = new List<User>();         
+            var ul = new List<User>();         
             foreach (var profile in connections.Persons)
             {
                 ul.Add(new User());
