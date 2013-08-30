@@ -23,8 +23,8 @@ namespace StartupValue
         private void getLinkedinPerson()
         {
 
-            var id = (from x in user.Profile where x.type == "LI" select x).ToList()[0].id;
-            var accessToken = (from x in user.Profile where x.type == "LI" select x).ToList()[0].accessToken;
+            var id = user.Profile[0].id;
+            var accessToken = user.Profile[0].accessToken;
             person = Contact.getPerson(id, accessToken);
         }
 
