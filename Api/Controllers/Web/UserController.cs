@@ -14,7 +14,7 @@ namespace UFOStart.Api.Controllers.Web
 {
     public class UserController : HackandCraftController
     {
-
+        //This method is depriciated
         public string emailSignUp(User user)
         {
             try
@@ -30,6 +30,56 @@ namespace UFOStart.Api.Controllers.Web
             return formattedResult(result);
         }
 
+        public string liLogin(User user)
+        {
+            try
+            {
+                result = orm.execObject<Result>(user, "api.user_linkedin_login");
+                var myresult = (Result)result;
+                
+                //keping linkedin stuff updated with every login
+                if (result.dbMessage == null)
+                {                    
+                    user.token = myresult.User.token;
+                    new Task(() => SaveLinkedInDetails.save(user)).Start();
+                    new Task(() => new UserStartupValue(user).save()).Start();
+                }
+            }
+            catch (Exception exp)
+            {
+                errorResult(exp);
+            }
+            return formattedResult(result);
+        }
+
+
+        public string liRegister(User user)
+        {
+            try
+            {
+
+                result = orm.execObject<Result>(user, "user_linkedin_register");
+                var myresult = (Result)result;              
+                if (result.dbMessage == null)
+               {
+                   Mail.enqueue(new WelcomeEmail(myresult.User.email, myresult.User.name));
+                   user.token = myresult.User.token;
+                   new Task(() => SaveLinkedInDetails.save(user)).Start();
+                   new Task(() => new UserStartupValue(user).save()).Start();
+               }
+
+            }
+            catch (Exception exp)
+            {
+                errorResult(exp);
+            }
+            return formattedResult(result);
+        }
+
+        
+        
+        
+        //This method is depriciated
         public string connect(User user)
         {
             try
@@ -61,6 +111,8 @@ namespace UFOStart.Api.Controllers.Web
             return formattedResult(result);
         }
 
+
+        //This method is depriciated
         public string login(User user)
         {
             try
