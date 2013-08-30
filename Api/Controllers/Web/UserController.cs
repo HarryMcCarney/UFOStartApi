@@ -42,7 +42,7 @@ namespace UFOStart.Api.Controllers.Web
                 {                    
                     user.token = myresult.User.token;
                     new Task(() => SaveLinkedInDetails.save(user)).Start();
-                    new Task(() => new UserStartupValue(user).save()).Start();
+                    new Task(() => new UserStartupValue(myresult.User).save()).Start();
                 }
             }
             catch (Exception exp)
@@ -65,7 +65,7 @@ namespace UFOStart.Api.Controllers.Web
                    Mail.enqueue(new WelcomeEmail(myresult.User.email, myresult.User.name));
                    user.token = myresult.User.token;
                    new Task(() => SaveLinkedInDetails.save(user)).Start();
-                   new Task(() => new UserStartupValue(user).save()).Start();
+                   new Task(() => new UserStartupValue(myresult.User).save()).Start();
                }
 
             }
@@ -159,11 +159,11 @@ namespace UFOStart.Api.Controllers.Web
             return formattedResult(result);
         }
 
-        public string type(User user)
+        public string info(User user)
         {
             try
             {
-                result = orm.execObject<Result>(user, "api.user_type_set");
+                result = orm.execObject<Result>(user, "api.user_info_set");
             }
             catch (Exception exp)
             {

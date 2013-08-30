@@ -13,7 +13,7 @@ namespace Model
         [XmlElement]
         public List<Category> Categories { get; set; }
         [XmlElement]
-        public List<Type> Types { get; set; }
+        public List<Role> Roles { get; set; }
         [XmlElement]
         public List<Currency> Currency { get; set; }
     }

@@ -19,11 +19,17 @@ namespace UFOStart.Model
         [XmlAttribute]
         public string token { get; set; }
         [XmlAttribute]
+        public string role { get; set; }
+        [XmlAttribute]
         public string interests { get; set; }
         [XmlAttribute]
-        public string type { get; set; }
+        public string currency { get; set; }
+        [XmlAttribute]
+        public float investmentAmount { get; set; }
         [XmlAttribute]
         public bool unconfirmed { get; set; }
+        [XmlElement]
+        public List<Role> Roles { get; set; }
         [XmlElement]
         public List<Profile> Profile { get; set; }
         [XmlElement]
@@ -36,8 +42,6 @@ namespace UFOStart.Model
         public List<Skill> Skills { get; set; }
         [XmlAttribute]
         public string headline { get; set; }
-        [XmlAttribute]
-        public string role { get; set; }
         [XmlAttribute]
         public string endorserToken { get; set; }
         [XmlAttribute]
