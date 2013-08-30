@@ -44,6 +44,7 @@ namespace UFOStart.Api.Controllers.Web
                     SaveLinkedInDetails.save(user);
                     new UserStartupValue(myresult.User).save();
                     //new Task(() => SaveConnections.save(user)).Start(); 
+
                     SaveConnections.save(user);
                 }
             }
