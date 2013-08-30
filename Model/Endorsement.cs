@@ -9,6 +9,8 @@ namespace Model
         [XmlAttribute]
         public string endorserToken { get; set; }
         [XmlAttribute]
+        public string endorserSlug { get; set; }
+        [XmlAttribute]
         public string endorserName { get; set; }
         [XmlAttribute]
         public string endorserPicture { get; set; }
