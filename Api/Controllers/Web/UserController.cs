@@ -63,6 +63,7 @@ namespace UFOStart.Api.Controllers.Web
                 var myresult = (Result)result;              
                 if (result.dbMessage == null)
                {
+
                    Mail.enqueue(new WelcomeEmail(myresult.User.email, myresult.User.name));
                    user.token = myresult.User.token;
                    new Task(() => SaveLinkedInDetails.save(user)).Start();
