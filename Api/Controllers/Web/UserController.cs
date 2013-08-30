@@ -58,7 +58,7 @@ namespace UFOStart.Api.Controllers.Web
             try
             {
 
-                result = orm.execObject<Result>(user, "user_linkedin_register");
+                result = orm.execObject<Result>(user, "api.user_linkedin_register");
                 var myresult = (Result)result;              
                 if (result.dbMessage == null)
                {
