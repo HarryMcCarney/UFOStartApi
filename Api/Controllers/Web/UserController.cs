@@ -159,11 +159,11 @@ namespace UFOStart.Api.Controllers.Web
             return formattedResult(result);
         }
 
-        public string type(User user)
+        public string info(User user)
         {
             try
             {
-                result = orm.execObject<Result>(user, "api.user_type_set");
+                result = orm.execObject<Result>(user, "api.user_info_set");
             }
             catch (Exception exp)
             {

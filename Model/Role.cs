@@ -8,7 +8,7 @@ using System.Xml.Serialization;
 namespace Model
 {
     [Serializable]
-    public class Type
+    public class Role
     {
         [XmlAttribute]
         public string name { get; set; }
