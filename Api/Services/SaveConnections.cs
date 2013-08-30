@@ -22,7 +22,7 @@ namespace UFOStart.Api.Services
                 Profile p = new Profile();
                 p.id = profile.ID.value;
                 ul[ul.Count-1].Profile = new List<Profile>();
-                ul[ul.Count - 1].Profile.Add(p);
+                ul[ul.Count - 1].Profile.Add(p); 
             }
             user.Users = ul;
             orm.execObject<Result>(user, "api.user_connections_save");
