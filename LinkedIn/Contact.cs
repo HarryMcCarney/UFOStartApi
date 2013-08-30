@@ -16,42 +16,28 @@ public static class Contact
 
     public static string getPicture(string id, string accessToken)
     {
-        try
-        {
-            var url =
-                string.Format(
-                    "https://api.linkedin.com/v1/people/id={0}:(id,headline,first-name,last-name,specialties,summary,industry,picture-url)?oauth2_access_token={1}", id, accessToken);
-            var contact = api.hit(url);
-            var xml = new XmlDocument();
-            xml.LoadXml(contact);
-            var contactObj = api.deserialise(xml, new Person());
-            return contactObj.picture;
-        }
-        catch (Exception exp)
-        {
-            return null;
-        }
+        var url =
+            string.Format(
+                "https://api.linkedin.com/v1/people/id={0}:(id,headline,first-name,last-name,specialties,summary,industry,picture-url)?oauth2_access_token={1}", id, accessToken);
+        var contact = api.hit(url);
+        var xml = new XmlDocument();
+        xml.LoadXml(contact);
+        var contactObj = api.deserialise(xml, new Person());
+        return contactObj.picture;
     }
 
 
     public static List<string> getSkils(string id, string accessToken)
     {
-        try
-        {
-            var url =
-                string.Format(
-                    "https://api.linkedin.com/v1/people/id={0}:(id,skills)?oauth2_access_token={1}", id, accessToken);
-            var contact = api.hit(url);
-            if (contact == null) return null;
-            var xml = new XmlDocument();
-            xml.LoadXml(contact);
-            var contactObj = api.deserialise(xml, new Person());
-            return contactObj.skillTags;
-        }
-        catch (Exception exp)
-        {
-            return null;
-        }
+        var url =
+            string.Format(
+                "https://api.linkedin.com/v1/people/id={0}:(id,skills)?oauth2_access_token={1}", id, accessToken);
+        var contact = api.hit(url);
+        if (contact == null) return null;
+        var xml = new XmlDocument();
+        xml.LoadXml(contact);
+        var contactObj = api.deserialise(xml, new Person());
+        return contactObj.skillTags;
     }
 
     public static string getHeadline(string id, string accessToken)
@@ -90,7 +76,7 @@ public static class Contact
         }
         catch (Exception exp)
         {
-            return null;
+            throw;
         }
 
     }
