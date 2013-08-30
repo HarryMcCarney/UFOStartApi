@@ -58,6 +58,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Connections.cs" />
     <Compile Include="Contact.cs" />
     <Compile Include="LinkedInApi.cs" />
     <Compile Include="PeopleSearch.cs" />
