@@ -25,7 +25,6 @@ namespace UFOStart.Api.Controllers.Web
             }
             return formattedResult(result);
         }
-
         public string index(Round round)
         {
             try
