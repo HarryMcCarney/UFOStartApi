@@ -4,6 +4,7 @@ using System.Xml;
 using Model;
 using UFOStart.LinkedIn;
 
+
 namespace LinkedIn
 {
 public static class Contact
@@ -160,6 +161,28 @@ public static class Contact
             throw;
         }
     }
+
+
+    public static Connections getConnections(string id, string accessToken)
+    {
+        try
+        {
+            var url =
+                string.Format(
+                    "https://api.linkedin.com/v1/people/{0}/connections:(id)?oauth2_access_token={1}", id, accessToken);
+            var contact = api.hit(url);
+            var xml = new XmlDocument();
+            xml.LoadXml(contact);
+            var contactObj = api.deserialise(xml, new Connections());
+            return contactObj;
+        }
+        catch (Exception exp)
+        {
+            return null;
+        }
+    }
+
+
 
   
 

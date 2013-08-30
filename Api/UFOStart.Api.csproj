@@ -159,6 +159,7 @@
     <Compile Include="Services\Messaging\WelcomeEmail.cs" />
     <Compile Include="Services\Round\CreateEndorsement.cs" />
     <Compile Include="Services\Round\FulfilRound.cs" />
+    <Compile Include="Services\SaveConnections.cs" />
     <Compile Include="Services\SaveSkills.cs" />
   </ItemGroup>
   <ItemGroup>
