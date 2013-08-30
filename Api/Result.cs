@@ -55,5 +55,8 @@ namespace UFOStart.Api
         [XmlElement]
         public Config Config { get; set; }
 
+        [XmlElement]
+        public Slug Slug { get; set; }
+
     }
 }

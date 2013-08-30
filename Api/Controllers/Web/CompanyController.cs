@@ -159,5 +159,20 @@ namespace UFOStart.Api.Controllers.Web
             return formattedResult(result);
         }
 
+        public string slugAvailable(Company company)
+        {
+            try
+            {
+                var user = new User() {slug = company.slug};
+                result = orm.execObject<Result>(user, "api.user_check_slug_available");
+
+            }
+            catch (Exception exp)
+            {
+                errorResult(exp);
+            }
+            return formattedResult(result);
+        }
+
     }
 }
