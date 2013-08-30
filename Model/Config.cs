@@ -14,5 +14,7 @@ namespace Model
         public List<Category> Categories { get; set; }
         [XmlElement]
         public List<Type> Types { get; set; }
+        [XmlElement]
+        public List<Currency> Currency { get; set; }
     }
 }
