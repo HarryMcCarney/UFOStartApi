@@ -41,8 +41,8 @@ namespace UFOStart.Api.Controllers.Web
                 if (result.dbMessage == null)
                 {                    
                     user.token = myresult.User.token;
-                    new Task(() => SaveLinkedInDetails.save(user)).Start();
-                    new Task(() => new UserStartupValue(myresult.User).save()).Start();
+                    SaveLinkedInDetails.save(user);
+                    new UserStartupValue(myresult.User).save();
                     //new Task(() => SaveConnections.save(user)).Start(); 
                     SaveConnections.save(user);
                 }
