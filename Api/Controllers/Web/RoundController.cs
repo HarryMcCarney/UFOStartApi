@@ -14,6 +14,7 @@ namespace UFOStart.Api.Controllers.Web
         public string create(Company company)
         {
             try
+            
             {
                 result = orm.execObject<Result>(company, "api.company_round_create");
            
