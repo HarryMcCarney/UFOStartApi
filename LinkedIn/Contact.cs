@@ -56,7 +56,7 @@ public static class Contact
         }
         catch (Exception exp)
         {
-            return null;
+            throw;
         }
     }
 
@@ -77,7 +77,7 @@ public static class Contact
         }
         catch (Exception exp)
         {
-            return null;
+            throw;
         }
 
     }
@@ -101,7 +101,7 @@ public static class Contact
         }
         catch (Exception exp)
         {
-            return null;
+            throw;
         }
     }
 
@@ -123,7 +123,7 @@ public static class Contact
         }
         catch (Exception exp)
         {
-            return null;
+            throw;
         }
     }
 
@@ -145,7 +145,7 @@ public static class Contact
         }
         catch (Exception exp)
         {
-            return null;
+            throw;
         }
     }
 
