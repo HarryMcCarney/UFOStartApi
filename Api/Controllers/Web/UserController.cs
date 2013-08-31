@@ -207,6 +207,19 @@ namespace UFOStart.Api.Controllers.Web
             return formattedResult(result);
         }
 
+        public string friendsCompanies(User user)
+        {
+            try
+            {
+                result = orm.execObject<Result>(user, "api.user_friends_companies");
+            }
+            catch (Exception exp)
+            {
+                errorResult(exp);
+            }
+            return formattedResult(result);
+        }
+
         
 
     }
