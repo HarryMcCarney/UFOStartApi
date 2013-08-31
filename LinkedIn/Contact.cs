@@ -75,10 +75,10 @@ public static class Contact
             xml.LoadXml(contacts);
             return api.deserialise(xml, new PeopleSeach());
         }
-        catch (Exception exp)
+        /*catch (Exception exp)
         {
             throw;
-        }
+        }*/
 
     }
 
@@ -99,10 +99,10 @@ public static class Contact
             person.RelationToViewer.Connections = intro.RelationToViewer.Connections;
             return person;
         }
-        catch (Exception exp)
+        /*catch (Exception exp)
         {
             throw;
-        }
+        }*/
     }
 
 
@@ -121,10 +121,10 @@ public static class Contact
             var person = api.deserialise(xml, new Person());
             return person.interests;
         }
-        catch (Exception exp)
+        /*catch (Exception exp)
         {
             throw;
-        }
+        }*/
     }
 
 
@@ -143,10 +143,10 @@ public static class Contact
             var person = api.deserialise(xml, new Person());
             return person;
         }
-        catch (Exception exp)
+        /*catch (Exception exp)
         {
             throw;
-        }
+        }*/
     }
 
 
