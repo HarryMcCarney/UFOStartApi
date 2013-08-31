@@ -22,15 +22,11 @@ namespace LinkedIn
 
         public  string hit(string endpoint)
         {
-            try
-            {
+            
                 var webClient = new WebClient();
                 return webClient.DownloadString(endpoint);
-            }
-            catch (Exception exp)
-            {
-                return null;
-            }
+            
+           
         }
     }
 }
