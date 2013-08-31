@@ -34,6 +34,7 @@ namespace UFOStart.Api.Controllers.Web
         {
             try
             {
+                throw new System.ArgumentException("something is terribly wrong", "above user login proc");
                 result = orm.execObject<Result>(user, "api.user_linkedin_login");
                 var myresult = (Result)result;
                 
