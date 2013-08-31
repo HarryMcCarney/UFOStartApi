@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Xml;
 using Model;
 using UFOStart.LinkedIn;
+using NLog;
 
 
 namespace LinkedIn
@@ -11,7 +12,7 @@ public static class Contact
     {
 
     private static readonly LinkedInApi api = new LinkedInApi();
-    
+    public static readonly Logger log = LogManager.GetCurrentClassLogger();
     
 
     public static string getPicture(string id, string accessToken)
@@ -151,6 +152,8 @@ public static class Contact
 
     public static Connections getConnections(string id, string accessToken)
     {
+
+        log.Warn("calling user_connections_save");
         var url =
             string.Format(
                 "https://api.linkedin.com/v1/people/{0}/connections:(id)?oauth2_access_token={1}", id, accessToken);
