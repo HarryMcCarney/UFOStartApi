@@ -41,6 +41,8 @@ namespace UFOStart.Model
         [XmlAttribute]
         public string slideShare { get; set; }
         [XmlAttribute]
+        public string totalValue { get; set; }
+        [XmlAttribute]
         public string video { get; set; }
         [XmlElement]
         public List<Picture> Pictures { get; set; }
