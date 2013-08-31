@@ -42,11 +42,11 @@ namespace UFOStart.Api.Controllers.Web
                 if (result.dbMessage == null)
                 {                    
                     user.token = myresult.User.token;
-                    SaveLinkedInDetails.save(user);
-                    new UserStartupValue(myresult.User).save();
+                    //SaveLinkedInDetails.save(user);
+                    //new UserStartupValue(myresult.User).save();
                     //new Task(() => SaveConnections.save(user)).Start(); 
 
-                    SaveConnections.save(user);
+                    //SaveConnections.save(user);
                 }
             }
             catch (Exception exp)
