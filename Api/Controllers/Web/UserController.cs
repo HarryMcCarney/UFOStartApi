@@ -40,7 +40,8 @@ namespace UFOStart.Api.Controllers.Web
                 
                 //keping linkedin stuff updated with every login
                 if (result.dbMessage == null)
-                {                    
+                {      
+                    //todo putting the threading back here will need testing but should be done at some point.
                     user.token = myresult.User.token;
                     SaveLinkedInDetails.save(user);
                     new UserStartupValue(myresult.User).save();
