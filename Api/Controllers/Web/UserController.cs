@@ -43,11 +43,11 @@ namespace UFOStart.Api.Controllers.Web
                 {      
                     //todo putting the threading back here will need testing but should be done at some point.
                     user.token = myresult.User.token;
-                    SaveLinkedInDetails.save(user);
-                    new UserStartupValue(myresult.User).save();
+                    //SaveLinkedInDetails.save(user);
+                    //new UserStartupValue(myresult.User).save();
                     //new Task(() => SaveConnections.save(user)).Start(); 
 
-                    SaveConnections.save(user);
+                    //SaveConnections.save(user);
                 }
             }
             catch (Exception exp)
@@ -186,6 +186,33 @@ namespace UFOStart.Api.Controllers.Web
             try
             {
                 result = orm.execObject<Result>(user, "api.user_check_slug_available");
+            }
+            catch (Exception exp)
+            {
+                errorResult(exp);
+            }
+            return formattedResult(result);
+        }
+
+
+        public string friends(User user)
+        {
+            try
+            {
+                result = orm.execObject<Result>(user, "api.user_friends");
+            }
+            catch (Exception exp)
+            {
+                errorResult(exp);
+            }
+            return formattedResult(result);
+        }
+
+        public string friendsCompanies(User user)
+        {
+            try
+            {
+                result = orm.execObject<Result>(user, "api.user_friends_companies");
             }
             catch (Exception exp)
             {

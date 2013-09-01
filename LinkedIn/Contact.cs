@@ -56,7 +56,7 @@ public static class Contact
         }
         catch (Exception exp)
         {
-            return null;
+            throw;
         }
     }
 
