@@ -7,6 +7,7 @@ using Model;
 using StartupValue;
 using UFOStart.Api.Services;
 using UFOStart.Api.Services.Messaging;
+using UFOStart.Facebook;
 using UFOStart.Model;
 using mandrill.net;
 
@@ -29,6 +30,23 @@ namespace UFOStart.Api.Controllers.Web
             }
             return formattedResult(result);
         }
+
+
+        public string facebook(User user)
+        {
+            try
+            {
+                user.fbValue = (FbApi.friends(user.Profile[0].accessToken)).Count;
+                user.fbLink = FbApi.me(user.Profile[0].accessToken);
+                result = orm.execObject<Result>(user, "api.user_facebook_value");
+            }
+            catch (Exception exp)
+            {
+                errorResult(exp);
+            }
+            return formattedResult(result);
+        }
+
 
         public string liLogin(User user)
         {

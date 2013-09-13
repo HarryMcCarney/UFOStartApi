@@ -200,6 +200,10 @@
       <Project>{57116D46-8F82-4005-AA8F-5B482D7832E9}</Project>
       <Name>StartupValue</Name>
     </ProjectReference>
+    <ProjectReference Include="..\UFOStart.Facebook\UFOStart.Facebook.csproj">
+      <Project>{d65a5598-a5a0-4482-8413-f52092c7872b}</Project>
+      <Name>UFOStart.Facebook</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="NLog.config">
@@ -208,6 +212,9 @@
     <None Include="NLog.xsd">
       <SubType>Designer</SubType>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

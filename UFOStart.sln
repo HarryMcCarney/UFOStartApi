@@ -18,6 +18,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UFOStart.LinkedIn", "Linked
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StartupValue", "StartupValue\StartupValue.csproj", "{57116D46-8F82-4005-AA8F-5B482D7832E9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UFOStart.Facebook", "UFOStart.Facebook\UFOStart.Facebook.csproj", "{D65A5598-A5A0-4482-8413-F52092C7872B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UFOStart.Xing", "UFOStart.Xing\UFOStart.Xing.csproj", "{2CFEC6CC-FC09-40C2-8807-E4C41A2A6F0C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -44,6 +48,14 @@ Global
 		{57116D46-8F82-4005-AA8F-5B482D7832E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{57116D46-8F82-4005-AA8F-5B482D7832E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{57116D46-8F82-4005-AA8F-5B482D7832E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D65A5598-A5A0-4482-8413-F52092C7872B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D65A5598-A5A0-4482-8413-F52092C7872B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D65A5598-A5A0-4482-8413-F52092C7872B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D65A5598-A5A0-4482-8413-F52092C7872B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2CFEC6CC-FC09-40C2-8807-E4C41A2A6F0C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2CFEC6CC-FC09-40C2-8807-E4C41A2A6F0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2CFEC6CC-FC09-40C2-8807-E4C41A2A6F0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2CFEC6CC-FC09-40C2-8807-E4C41A2A6F0C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
