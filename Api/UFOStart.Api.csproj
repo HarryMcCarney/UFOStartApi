@@ -204,6 +204,10 @@
       <Project>{d65a5598-a5a0-4482-8413-f52092c7872b}</Project>
       <Name>UFOStart.Facebook</Name>
     </ProjectReference>
+    <ProjectReference Include="..\UFOStart.Xing\UFOStart.Xing.csproj">
+      <Project>{2cfec6cc-fc09-40c2-8807-e4c41a2a6f0c}</Project>
+      <Name>UFOStart.Xing</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="NLog.config">
