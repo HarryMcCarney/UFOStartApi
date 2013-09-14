@@ -55,8 +55,8 @@ namespace UFOStart.Api.Controllers.Web
             {
                 var api = new XingApi(user.Profile[0].accessToken, user.Profile[0].secret,
                     Globals.Instance.settings["XingApiKey"], Globals.Instance.settings["XingApiSecret"]);
-                user.xingValue = api.getContactsNumber("https://api.xing.com/v1/users/me/contacts", "get");
-                user.xingLink = api.getProfileLink("https://api.xing.com/v1/users/me", "get");                              
+                user.xingValue = api.getContactsNumber();
+                user.xingLink = api.getProfileLink();                              
                 result = orm.execObject<Result>(user, "api.user_xing_value");
             }
             catch (Exception exp)

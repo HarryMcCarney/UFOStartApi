@@ -23,11 +23,11 @@ namespace UFOStart.Xing
         }
 
 
-        public int getContactsNumber(string url, string method)
+        public int getContactsNumber()
         {
             try
             {
-                var res = oa.hmac(url, method);
+                var res = oa.hmac("https://api.xing.com/v1/users/me/contacts", "get");
                 var readStream = new StreamReader(res.GetResponseStream(), Encoding.UTF8);
                 var o = JObject.Parse(readStream.ReadToEnd());
                 return int.Parse((string)o["contacts"]["total"]);
@@ -38,11 +38,11 @@ namespace UFOStart.Xing
             }
         }
 
-        public string getProfileLink(string url, string method)
+        public string getProfileLink()
         {
             try
             {
-                var res = oa.hmac(url, method);
+                var res = oa.hmac("https://api.xing.com/v1/users/me", "get");
                 var readStream = new StreamReader(res.GetResponseStream(), Encoding.UTF8);
                 var o = JObject.Parse(readStream.ReadToEnd());
 
