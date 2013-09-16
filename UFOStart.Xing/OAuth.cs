@@ -62,11 +62,8 @@ namespace UFOStart.Xing
 
         }
 
-
         public JObject plainText(string url, string method)
         {
-
-
             sd["oauth_timestamp"] = nowSeconds();
             sd["oauth_nonce"] = randomString();
             if (sd.ContainsKey("oauth_signature_method"))
@@ -133,6 +130,7 @@ namespace UFOStart.Xing
             {
                 vars += Uri.EscapeDataString(entry.Key) + "=" + Uri.EscapeDataString(entry.Value) + "&";
             }
+            //taking away the last &, cause there is one to much (on the end)
             vars = vars.Substring(0, vars.Length - 1);
 
             return codeString + Uri.EscapeDataString(vars);
