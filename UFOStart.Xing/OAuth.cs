@@ -40,6 +40,7 @@ namespace UFOStart.Xing
         //use HMAC-SHA1 method. Function accepts api url and method(GET,POST,...) and return response as JSON.
         public JObject hmac(string url, string method)
         {
+            
             //update timestamp to now and generate random string from current time
             sd["oauth_timestamp"] = nowSeconds();
             sd["oauth_nonce"] = randomString();
@@ -57,11 +58,16 @@ namespace UFOStart.Xing
             //get text that will be coded
             var textToCode = textForCode(url, method);
             //code text
-            var signature = getSignature(textToCode);
+            var signature = Uri.EscapeDataString(getSignature(textToCode));
+               
             //get response
-            var response = JObject.Parse(new WebClient().DownloadString(String.Format("{0}?{1}oauth_signature={2}", url, baseString, signature)));
-
+            var response =
+                JObject.Parse(
+                    new WebClient().DownloadString(String.Format("{0}?{1}oauth_signature={2}", url, baseString,
+                        signature)));
+                
             return response;
+            
         }
 
         //use PLANTEXT method. Function accepts api url and method(GET,POST,...) and return response as JSON.
