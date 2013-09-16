@@ -13,6 +13,11 @@ using Newtonsoft.Json.Linq;
 
 namespace UFOStart.Xing
 {
+    /*
+     * In general, we create a dictionary, that holds constant information.
+     * With this, we can always build request parametrs, just timestamp
+     * and nonce(random string) have to be updated before every request).    
+    */
     public class OAuth
     {
         private SortedDictionary<String, String> sd { get; set; }
@@ -31,10 +36,8 @@ namespace UFOStart.Xing
             sd.Add("oauth_version", "1.0");
             sd.Add("oauth_timestamp", "");
             sd.Add("oauth_nonce", "");
-        }
-
-        
-        //use HMAC-SHA1 method 
+        }     
+        //use HMAC-SHA1 method. Function accepts api url and method(GET,POST,...) and return response as JSON.
         public JObject hmac(string url, string method)
         {
             //update timestamp to now and generate random string from current time
@@ -59,9 +62,9 @@ namespace UFOStart.Xing
             var response = JObject.Parse(new WebClient().DownloadString(String.Format("{0}?{1}oauth_signature={2}", url, baseString, signature)));
 
             return response;
-
         }
 
+        //use PLANTEXT method. Function accepts api url and method(GET,POST,...) and return response as JSON.
         public JObject plainText(string url, string method)
         {
             sd["oauth_timestamp"] = nowSeconds();
@@ -75,19 +78,15 @@ namespace UFOStart.Xing
                 sd.Add("oauth_signature_method", "PLAINTEXT");
             }
 
-
             var baseString = getBaseString();
             //this time, we do not code anything, cause we are using plain text method, just merge the keys together, with & in between
 
             var signature = Uri.EscapeDataString(appSecret) + Uri.EscapeDataString("&") +
                     Uri.EscapeDataString(tokenSecret);
-
-
             //get resonse
             var response = JObject.Parse(new WebClient().DownloadString(String.Format("{0}?{1}oauth_signature={2}", url, baseString, signature)));
 
-            return response;
-          
+            return response;         
         }
 
         //random string is created fro curent time
@@ -106,8 +105,6 @@ namespace UFOStart.Xing
             return Convert.ToInt64(ts.TotalSeconds).ToString();
         }
 
-
-
         //get the basic string (this will be used for paramethers, so at this point we can put everythin it to this form key=value&key=value....we finish off with &, because we need to append signature to it later
         private string getBaseString()
         {
@@ -118,7 +115,6 @@ namespace UFOStart.Xing
             }
             return baseString;
         }
-
 
         //createing text what we will encode with our secret. It is similar to base string, but we need to decoded and put in in this form GET&url_base&parametrs
         private string textForCode( string url,string method)
