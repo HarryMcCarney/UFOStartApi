@@ -4,6 +4,7 @@ using System.Collections.Specialized;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Security;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,6 +19,7 @@ namespace UFOStart.Xing
         private string tokenSecret { get; set; }
         private string appSecret { get; set; }
 
+        //setup basic information that never changes
 
         public OAuth(string token, string _tokenSecret, string appId, string _appSecret)
         {            
@@ -31,11 +33,14 @@ namespace UFOStart.Xing
             sd.Add("oauth_nonce", "");
         }
 
-        public HttpWebResponse hmac(string url, string method)
+        
+        //use HMAC-SHA1 method 
+        public JObject hmac(string url, string method)
         {
-
+            //update timestamp to now and generate random string from current time
             sd["oauth_timestamp"] = nowSeconds();
             sd["oauth_nonce"] = randomString();
+            //chek if signature method has been set before to something else
             if (sd.ContainsKey("oauth_signature_method"))
             {
                 sd["oauth_signature_method"] = "HMAC-SHA1";
@@ -44,21 +49,23 @@ namespace UFOStart.Xing
             {
                 sd.Add("oauth_signature_method", "HMAC-SHA1");
             }
+            //get base string
             var baseString = getBaseString();
+            //get text that will be coded
             var textToCode = textForCode(url, method);
+            //code text
             var signature = getSignature(textToCode);
+            //get response
+            var response = JObject.Parse(new WebClient().DownloadString(String.Format("{0}?{1}oauth_signature={2}", url, baseString, signature)));
 
-            var hwr = (HttpWebRequest)WebRequest.Create(String.Format("{0}?{1}oauth_signature={2}", url, baseString, signature));
-            hwr.Method = method;
-            hwr.Timeout = 3 * 60 * 1000;
-          
-            return hwr.GetResponse() as HttpWebResponse;
-           
+            return response;
+
         }
 
 
-        public HttpWebResponse plainText(string url, string method)
+        public JObject plainText(string url, string method)
         {
+
 
             sd["oauth_timestamp"] = nowSeconds();
             sd["oauth_nonce"] = randomString();
@@ -70,23 +77,29 @@ namespace UFOStart.Xing
             {
                 sd.Add("oauth_signature_method", "PLAINTEXT");
             }
+
+
             var baseString = getBaseString();
+            //this time, we do not code anything, cause we are using plain text method, just merge the keys together, with & in between
+
             var signature = Uri.EscapeDataString(appSecret) + Uri.EscapeDataString("&") +
                     Uri.EscapeDataString(tokenSecret);
-            var hwr =(HttpWebRequest)
-                        WebRequest.Create(String.Format("{0}?{1}oauth_signature={2}", url, baseString, signature));
-            hwr.Method = method;
-            hwr.Timeout = 3*60*1000;
 
-            return hwr.GetResponse() as HttpWebResponse;
-            
+
+            //get resonse
+            var response = JObject.Parse(new WebClient().DownloadString(String.Format("{0}?{1}oauth_signature={2}", url, baseString, signature)));
+
+            return response;
+          
         }
 
+        //random string is created fro curent time
         private static string randomString()
         {
             return Convert.ToBase64String(new ASCIIEncoding().GetBytes(DateTime.Now.Ticks.ToString()));
         }
 
+        //this gives us time in miliseconds from 1.1.1970
         private string nowSeconds()
         {
             TimeSpan ts = DateTime.UtcNow -
@@ -96,6 +109,9 @@ namespace UFOStart.Xing
             return Convert.ToInt64(ts.TotalSeconds).ToString();
         }
 
+
+
+        //get the basic string (this will be used for paramethers, so at this point we can put everythin it to this form key=value&key=value....we finish off with &, because we need to append signature to it later
         private string getBaseString()
         {
             var baseString = String.Empty;
@@ -106,6 +122,8 @@ namespace UFOStart.Xing
             return baseString;
         }
 
+
+        //createing text what we will encode with our secret. It is similar to base string, but we need to decoded and put in in this form GET&url_base&parametrs
         private string textForCode( string url,string method)
         {
 
@@ -121,6 +139,7 @@ namespace UFOStart.Xing
 
         }
 
+        //we create a signature for signing we use appSecert + tokenSecert
         private string getSignature(string codeString)
         {
             var signingKey =
@@ -136,7 +155,6 @@ namespace UFOStart.Xing
             byte[] hashBytes = hmacsha1.ComputeHash(dataBuffer);
 
             return Convert.ToBase64String(hashBytes);
-
         }
     }
 }

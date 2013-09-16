@@ -27,10 +27,8 @@ namespace UFOStart.Xing
         {
             try
             {
-                var res = oa.hmac("https://api.xing.com/v1/users/me/contacts", "get");
-                var readStream = new StreamReader(res.GetResponseStream(), Encoding.UTF8);
-                var o = JObject.Parse(readStream.ReadToEnd());
-                return int.Parse((string)o["contacts"]["total"]);
+                var res = oa.hmac("https://api.xing.com/v1/users/me/contacts", "get");             
+                return int.Parse((string)res["contacts"]["total"]);
             }
             catch (Exception e)
             {
@@ -43,10 +41,7 @@ namespace UFOStart.Xing
             try
             {
                 var res = oa.hmac("https://api.xing.com/v1/users/me", "get");
-                var readStream = new StreamReader(res.GetResponseStream(), Encoding.UTF8);
-                var o = JObject.Parse(readStream.ReadToEnd());
-
-                return (string)o["users"][0]["permalink"];
+                return (string)res["users"][0]["permalink"];
             }
             catch (Exception e)
             {
