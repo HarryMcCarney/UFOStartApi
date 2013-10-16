@@ -49,7 +49,17 @@ namespace UFOStart.Model
         [XmlAttribute]
         public int startupValue { get; set; }
         [XmlAttribute]
+        public int linkedinValue { get; set; }
+        [XmlAttribute]
+        public int fbValue { get; set; }
+        [XmlAttribute]
+        public int xingValue { get; set; }
+        [XmlAttribute]
         public string inviteToken { get; set; }
+        [XmlAttribute]
+        public string fbLink { get; set; }
+        [XmlAttribute]
+        public string xingLink { get; set; }
         [XmlElement]
         public List<Endorsement> Endorsements { get; set; }
         [XmlElement]

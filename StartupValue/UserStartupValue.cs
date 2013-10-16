@@ -41,10 +41,10 @@ namespace StartupValue
 
         public void save()
         {
-            user.startupValue = calculate();
+            user.linkedinValue = calculate();
 
             var orm = new Orm();
-            orm.execObject<Result>(user, "api.user_startup_value");
+            orm.execObject<Result>(user, "api.user_linkedin_value");
 
         }
 

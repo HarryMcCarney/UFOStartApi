@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Net;
+using System.Text;
 using System.Xml;
 using System.Xml.Serialization;
 using NLog;
@@ -31,6 +32,7 @@ namespace LinkedIn
 
                 log.Warn("calling user_connections_save");
                 var webClient = new WebClient();
+                webClient.Encoding = Encoding.UTF8;
                 return webClient.DownloadString(endpoint);
             }
             catch (Exception exp)

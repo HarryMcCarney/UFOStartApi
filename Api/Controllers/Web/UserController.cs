@@ -2,13 +2,16 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using HackandCraft.Api;
+using HackandCraft.Config;
 using LinkedIn;
 using Model;
 using StartupValue;
 using UFOStart.Api.Services;
 using UFOStart.Api.Services.Messaging;
+using UFOStart.Facebook;
 using UFOStart.Model;
 using mandrill.net;
+using UFOStart.Xing;
 
 namespace UFOStart.Api.Controllers.Web
 {
@@ -29,6 +32,40 @@ namespace UFOStart.Api.Controllers.Web
             }
             return formattedResult(result);
         }
+
+
+        public string facebook(User user)
+        {
+            try
+            {
+                user.fbValue = (FbApi.friends(user.Profile[0].accessToken)).Count;
+                user.fbLink = FbApi.me(user.Profile[0].accessToken);
+                result = orm.execObject<Result>(user, "api.user_facebook_value");
+            }
+            catch (Exception exp)
+            {
+                errorResult(exp);
+            }
+            return formattedResult(result);
+        }
+
+        public string xing(User user)
+        {
+            try
+            {
+                var api = new XingApi(user.Profile[0].accessToken, user.Profile[0].secret,
+                    Globals.Instance.settings["XingApiKey"], Globals.Instance.settings["XingApiSecret"]);
+                user.xingValue = api.getContactsNumber();
+                user.xingLink = api.getProfileLink();                              
+                result = orm.execObject<Result>(user, "api.user_xing_value");
+            }
+            catch (Exception exp)
+            {
+                errorResult(exp);
+            }
+            return formattedResult(result);
+        }
+
 
         public string liLogin(User user)
         {
