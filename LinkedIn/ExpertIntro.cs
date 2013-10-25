@@ -1,39 +1,47 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using DBVC;
+using HackandCraft.Config;
 using LinkedIn;
 using Model;
 using UFOStart.Model;
-using Skill = UFOStart.Model.Skill;
+
 
 namespace UFOStart.LinkedIn
 {
     public class ExpertIntro
     {
+        private readonly Round _round;
 
+
+        public ExpertIntro(Round round )
+        {
+            _round = round;
+        }
 
         private  string accessToken { get; set; }
         private  string secret { get; set; }
         private  string need { get; set; }
 
 
-        public  List<Expert> getExperts(User user, Need _need)
+        public  void getExperts(User user, Need _need)
         {
 
-            var experts = new List<Expert>();
+            
             var profile = (from x in user.Profile where x.type == "LI" select x).Take(1).ToList()[0];
             accessToken = profile.accessToken;
             need = _need.name;
 
             var rawContacts = Contact.getContacts(_need, accessToken);
             if (rawContacts == null)
-                return null;
+                return ;
             var contacts = (from x in rawContacts.People.Person where x.firstName != "private" select x).ToList();
             if (contacts.Count == 0)
-                return null;
+                return ;
             rankContacts(contacts);
 
 
-            var bestMatches = (from x in contacts orderby x.rating descending select x).Take(7).ToList();
+            var bestMatches = (from x in contacts orderby x.rating descending select x).Take(4).ToList();
             foreach (var match in bestMatches)
             {
                 var intro = Contact.getIntro(match, accessToken);
@@ -65,11 +73,16 @@ namespace UFOStart.LinkedIn
                     expert.introLinkedinId = intro.Intro.id;
                     expert.introPicture = Contact.getPicture(intro.Intro.id, accessToken);
                 };
+
+                var experts = new List<Expert>();
                 experts.Add(expert);
+                _need.Experts = experts;
+                _round.Needs = new List<Need>() { _need };
+
+                new Orm().execObject<Result>(_round, "api.round_assign_experts");
 
             }
 
-            return experts;
         }
 
         private  void rankContacts(List<Person> contacts )

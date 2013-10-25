@@ -40,6 +40,12 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="HackandCraft.Config">
+      <HintPath>..\packages\HackandCraft.Api.1.0.74\lib\net40\HackandCraft.Config.dll</HintPath>
+    </Reference>
+    <Reference Include="HackandCraft.DBVC">
+      <HintPath>..\packages\HackandCraft.DBVC.1.0.79\lib\net45\HackandCraft.DBVC.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\Newtonsoft.Json.4.5.5\lib\net40\Newtonsoft.Json.dll</HintPath>
     </Reference>
