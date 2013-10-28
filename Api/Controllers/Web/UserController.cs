@@ -103,15 +103,13 @@ namespace UFOStart.Api.Controllers.Web
                 var myresult = (Result)result;              
                 if (result.dbMessage == null)
                {
-
                    Mail.enqueue(new WelcomeEmail(myresult.User.email, myresult.User.name));
                    user.token = myresult.User.token;
-                   new Task(() => SaveLinkedInDetails.save(user)).Start();
+                   SaveLinkedInDetails.save(user));
                    new Task(() => new UserStartupValue(myresult.User).save()).Start();
                   // new Task(() => SaveConnections.save(user)).Start(); 
-                    SaveConnections.save(user);
+                   new Task(() => SaveConnections.save(user)).Start();
                }
-
             }
             catch (Exception exp)
             {
