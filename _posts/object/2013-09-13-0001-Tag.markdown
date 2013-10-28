@@ -1,0 +1,23 @@
+---
+layout: endpoint
+category: object
+title: Tag
+---
+
+<pre class="prettyprint">
+{
+    "id" : "Tag",
+    "name" : "Tag",
+    "description" : "Task Tag, like SEO, SEM, Branding",
+    "type" : "object",
+    "$schema" : "http://json-schema.org/draft-03/schema",
+    "required" : false,
+    "properties" : {
+        "name" : {
+            "id" : "/Tag/name",
+            "type" : "string",
+            "required" : true
+        }
+    }
+}
+</pre>

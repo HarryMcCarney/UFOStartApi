@@ -1,0 +1,23 @@
+---
+layout: endpoint
+category: object
+title: Slug
+---
+
+<pre class="prettyprint">
+{
+    "id" : "Slug",
+    "name":"Slug" :
+    "type" : "object",
+    "$schema" : "http://json-schema.org/draft-03/schema",
+    "required" : false,
+    "properties" : {
+        "type" : {
+            "id" : "/Slug/type",
+            "type" : "string",
+            "enum": ["COMPANY", "USER"]
+            "required" : true
+        }
+    }
+}
+</pre>
