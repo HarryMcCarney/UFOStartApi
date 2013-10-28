@@ -80,7 +80,8 @@ namespace UFOStart.Api.Controllers.Web
                 {      
                     //todo putting the threading back here will need testing but should be done at some point.
                     user.token = myresult.User.token;
-                    SaveLinkedInDetails.save(user);
+                    //Commented this out for now. We will not be updating skills on login no more
+                    //SaveLinkedInDetails.save(user);
                     new UserStartupValue(myresult.User).save();
                     //new Task(() => SaveConnections.save(user)).Start(); 
                     SaveConnections.save(user);
@@ -110,8 +111,7 @@ namespace UFOStart.Api.Controllers.Web
                   // new Task(() => SaveConnections.save(user)).Start(); 
                    new Task(() => SaveConnections.save(user)).Start();
                    result = orm.execObject<Result>(user, "api.user_profile");
-               }
-               
+               }              
             }
             catch (Exception exp)
             {
