@@ -109,7 +109,9 @@ namespace UFOStart.Api.Controllers.Web
                    new Task(() => new UserStartupValue(myresult.User).save()).Start();
                   // new Task(() => SaveConnections.save(user)).Start(); 
                    new Task(() => SaveConnections.save(user)).Start();
+                   result = orm.execObject<Result>(user, "api.user_profile");
                }
+               
             }
             catch (Exception exp)
             {
