@@ -74,7 +74,7 @@ You should now be able to browse to the url and get a iis default page.
 
 ## Setting up the Database ##
 First get an up to date  backup to restore on the new sql sever.
-After the restore you need to create the ufo_user with pwd that is configured in <code>UfoStart.Api-->Web.config</code>, and in <code>UFOStart.MailQueue--> App.config</code> (in the respective C# projects).
+After the restore you need to create the ufo_user with pwd that is configured in <code>UfoStart.Api-->Web.config</code>, and in <code>UFOStart.MailQueue-->App.config</code> (in the respective C# projects).
 Now we need to sync the user in the backup with the newly created login with 
     exec sp_change_users_login 'Update_One', 'ufo_user', 'ufo_user'
 
