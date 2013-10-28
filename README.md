@@ -31,7 +31,7 @@ user: Jens
 pwd: UfoStart2013.
 
 
-open SQl managment studio
+open SQL management studio
 connect to feuerbach instance
 user: Jens
 pwd: UfoStart2013.
@@ -68,13 +68,13 @@ run this powershell script
 Then into the server manager/webserver/iissite and find ufostart.api
 right click and go to edit bindings. find the binding and select edit.
 Then select the ssl cert with the same name as the new machine and click save.
-check the ufostart app pool is runnign version 4.0 and is started. 
+check the ufostart app pool is running version 4.0 and is started. 
 
 You should now be able to browse to the url and get a iis default page.
 
 ## Setting up the Database ##
 First get an up to date  backup to restore on the new sql sever.
-After the restore you need to create the ufo_user with pwd that is configured in UfoStart.Api-->Web.config (C# project - also in App.config in UFOStart.MailQueue)  .
+After the restore you need to create the ufo_user with pwd that is configured in <code>UfoStart.Api-->Web.config</code>, and in <code>UFOStart.MailQueue -->  App.config</code> (in the respective C# projects).
 Now we need to sync the user in the backup with the newly created login with 
     exec sp_change_users_login 'Update_One', 'ufo_user', 'ufo_user'
 
