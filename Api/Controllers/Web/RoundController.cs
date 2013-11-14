@@ -105,6 +105,7 @@ namespace UFOStart.Api.Controllers.Web
                 result = orm.execObject<Result>(round, "api.round_need_create");
                 var myresult = (Result)result;
                 new Task(() => new FulfilRound(myresult.Round).fulfil()).Start();
+                orm.execObject<Result>(round, "api.find_experts_contacts");
             }
             catch (Exception exp)
             {
