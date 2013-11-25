@@ -56,6 +56,10 @@ namespace UFOStart.Api
         public Config Config { get; set; }
         [XmlElement]
         public Slug Slug { get; set; }
+        [XmlElement]
+        public Page Page { get; set; }
+        [XmlElement]
+        public List<Page> Pages { get; set; }
 
     }
 }

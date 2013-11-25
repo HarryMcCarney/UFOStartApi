@@ -41,5 +41,63 @@ namespace UFOStart.Api.Controllers.Admin
             return formattedResult(result);
         }
 
+        public string createPage(Page page)
+        {
+            try
+            {
+                result = orm.execObject<Result>(page, "api.admin_static_page_create");
+
+            }
+            catch (Exception exp)
+            {
+                errorResult(exp);
+            }
+            return formattedResult(result);
+        }
+
+        public string getPage(Page page)
+        {
+            try
+            {
+                result = orm.execObject<Result>(page, "api.admin_static_page_get");
+
+            }
+            catch (Exception exp)
+            {
+                errorResult(exp);
+            }
+            return formattedResult(result);
+        }
+
+
+        public string allPages(Page page)
+        {
+            try
+            {
+                result = orm.execObject<Result>(page, "api.admin_static_page_list");
+
+            }
+            catch (Exception exp)
+            {
+                errorResult(exp);
+            }
+            return formattedResult(result);
+        }
+
+
+        public string editPage(Page page)
+        {
+            try
+            {
+                result = orm.execObject<Result>(page, "api.admin_static_page_edit");
+
+            }
+            catch (Exception exp)
+            {
+                errorResult(exp);
+            }
+            return formattedResult(result);
+        }
+
     }
 }

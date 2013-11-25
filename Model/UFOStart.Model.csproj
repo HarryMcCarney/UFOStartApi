@@ -62,6 +62,7 @@
     <Compile Include="Mentors.cs" />
     <Compile Include="Need.cs" />
     <Compile Include="Offer.cs" />
+    <Compile Include="Page.cs" />
     <Compile Include="Picture.cs" />
     <Compile Include="Pledge.cs" />
     <Compile Include="Product.cs" />
