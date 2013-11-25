@@ -17,9 +17,11 @@ namespace UFOStart.Api
 
         public  void fulfil()
         {
-            assignServices();
+            //we do not want to assign services automatically anymore 
+            //assignServices();
             assignExperts();
         }
+
 
         public  void assignServices()
         {
