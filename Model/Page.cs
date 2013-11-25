@@ -16,5 +16,14 @@ namespace Model
         public string title {get;set;}
         [XmlAttribute]
         public string metaKeywords { get; set; }
+        [XmlAttribute]
+        public string metaDescription { get; set; }
+        [XmlAttribute]
+        public string content { get; set; }
+        [XmlAttribute]
+        public bool active { get; set; }
+        [XmlAttribute]
+        public bool linked { get; set; }
+
     }
 }
