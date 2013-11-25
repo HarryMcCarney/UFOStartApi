@@ -58,6 +58,10 @@ namespace UFOStart.Model
         public List<User> Mentors { get; set; }
         [XmlAttribute]
         public string currency { get; set; }
+        [XmlAttribute]
+        public string companyUrl { get; set; }
+        [XmlAttribute]
+        public string socialMediaUrl { get; set; }
     }
 
     
