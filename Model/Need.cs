@@ -36,6 +36,8 @@ namespace Model
         public string customText { get; set; }
         [XmlAttribute]
         public bool isExpert { get; set; }
+        [XmlAttribute]
+        public bool parttime { get; set; }
         [XmlElement]
         public Service Service { get; set; }
         [XmlElement]
