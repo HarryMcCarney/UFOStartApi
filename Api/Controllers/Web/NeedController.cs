@@ -140,5 +140,20 @@ namespace UFOStart.Api.Controllers.Web
             }
             return formattedResult(result);
         }
+
+        public string name(Need need)
+        {
+            try
+            {
+                result = orm.execObject<Result>(need, "api.need_search_name");
+            }
+            catch (Exception exp)
+            {
+                errorResult(exp);
+            }
+            return formattedResult(result);
+        }
+
+        //
     }
 }
