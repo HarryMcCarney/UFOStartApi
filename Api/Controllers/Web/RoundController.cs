@@ -5,6 +5,9 @@ using Model;
 using UFOStart.Api.Services;
 using UFOStart.Api.Services.Round;
 using UFOStart.Model;
+using HackandCraft.Config;
+using UFOStart.Api.Services.Messaging;
+using mandrill.net;
 
 namespace UFOStart.Api.Controllers.Web
 {
@@ -90,6 +93,16 @@ namespace UFOStart.Api.Controllers.Web
                // new FulfilRound(myresult.Round).fulfil();
                 new Task(() => new FulfilRound(myresult.Round).fulfil()).Start();
                 orm.execObject<Result>(round, "api.find_experts_contacts");
+
+                foreach (var invite in round.Invite)
+                {
+                    var token = Guid.NewGuid().ToString();
+                    invite.inviteToken = token;
+                    result = orm.execObject<Result>(invite, "api.company_invite");
+                    var link = string.Format("{0}{1}{2}", Globals.Instance.settings["RootUrl"],
+                                             Globals.Instance.settings["CompanyInvite"], invite.inviteToken);
+                    Mail.enqueue(new CompanyInviteEmail(invite.email, invite.name, invite.invitorName, link));
+                }
             }
             catch (Exception exp)
             {
@@ -106,6 +119,16 @@ namespace UFOStart.Api.Controllers.Web
                 var myresult = (Result)result;
                 new Task(() => new FulfilRound(myresult.Round).fulfil()).Start();
                 orm.execObject<Result>(round, "api.find_experts_contacts");
+
+                foreach (var invite in round.Invite)
+                {
+                    var token = Guid.NewGuid().ToString();
+                    invite.inviteToken = token;
+                    result = orm.execObject<Result>(invite, "api.company_invite");
+                    var link = string.Format("{0}{1}{2}", Globals.Instance.settings["RootUrl"],
+                                             Globals.Instance.settings["CompanyInvite"], invite.inviteToken);
+                    Mail.enqueue(new CompanyInviteEmail(invite.email, invite.name, invite.invitorName, link));
+                }
             }
             catch (Exception exp)
             {

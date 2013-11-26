@@ -30,7 +30,8 @@ namespace Model
         public Product Product { get; set; }
         [XmlElement]
         public Workflow Workflow { get; set; }
-
+        [XmlElement]
+        public List<Invite> Invite { get; set; }
         [XmlAttribute]
         public string status { get; set; }
         [XmlElement]
