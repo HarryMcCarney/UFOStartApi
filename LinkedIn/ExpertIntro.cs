@@ -7,7 +7,6 @@ using Model;
 using UFOStart.Model;
 using System;
 
-
 namespace UFOStart.LinkedIn
 {
     public class ExpertIntro
@@ -35,8 +34,8 @@ namespace UFOStart.LinkedIn
             foreach (var t in _need.Tags){
                 need = String.Format("{0}{1} OR ", need, t.name);
             }
-            need = Uri.EscapeUriString(need.Remove(need.Length - 4));
-
+            need = Uri.EscapeDataString(need.Remove(need.Length - 4));
+            
             var rawContacts = Contact.getContacts(need, accessToken);
             if (rawContacts == null)
                 return ;
