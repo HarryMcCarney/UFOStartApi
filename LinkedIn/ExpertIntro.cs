@@ -45,8 +45,8 @@ namespace UFOStart.LinkedIn
                 return ;
             rankContacts(contacts);
 
-
             var bestMatches = (from x in contacts orderby x.rating descending select x).Take(4).ToList();
+            var experts = new List<Expert>();
             foreach (var match in bestMatches)
             {
                 var intro = Contact.getIntro(match, accessToken);
@@ -79,14 +79,14 @@ namespace UFOStart.LinkedIn
                     expert.introPicture = Contact.getPicture(intro.Intro.id, accessToken);
                 };
 
-                var experts = new List<Expert>();
-                experts.Add(expert);
-                _need.Experts = experts;
+               
+                experts.Add(expert);           
+            }
+
+               _need.Experts = experts;
                 _round.Needs = new List<Need>() { _need };
 
                 new Orm().execObject<Result>(_round, "api.round_assign_experts");
-
-            }
 
         }
 
