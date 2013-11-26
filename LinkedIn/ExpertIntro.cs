@@ -61,12 +61,14 @@ namespace UFOStart.LinkedIn
                         headline = match.headline,
                        
                     };
-                var skills = Contact.getSkils(match.id, accessToken);
+
+                //we do not save this information so it makes it a redundand api call. Also lambda operator in this expression is not allowed.
+                /*var skills = Contact.getSkils(match.id, accessToken);               
                 if (skills != null)
                 {
                     
                      expert.Skills = skills.Select(s => new Model.Skill() { name = s }).ToList();
-                }
+                }*/
 
 
           
