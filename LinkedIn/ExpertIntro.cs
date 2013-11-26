@@ -62,7 +62,7 @@ namespace UFOStart.LinkedIn
                        
                     };
 
-                //we do not save this information so it makes it a redundand api call. Also lambda operator in this expression is not allowed.
+                //we do not save this information so it makes it a redundand api call.
                 /*var skills = Contact.getSkils(match.id, accessToken);               
                 if (skills != null)
                 {

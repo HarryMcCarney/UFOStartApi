@@ -126,10 +126,14 @@ namespace UFOStart.LinkedIn
         {
             get
             {
-                if (RelationToViewer.Connections.Persons.Count == 0)
+                try
+                {
+                    return RelationToViewer.Connections.Persons[0];
+                }
+                catch (Exception e)
+                {
                     return null;
-                 return  RelationToViewer.Connections.Persons[0]; 
-            
+                }
             }
 
         }
