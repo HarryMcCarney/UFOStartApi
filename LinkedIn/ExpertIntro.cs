@@ -5,6 +5,7 @@ using HackandCraft.Config;
 using LinkedIn;
 using Model;
 using UFOStart.Model;
+using System;
 
 
 namespace UFOStart.LinkedIn
@@ -30,9 +31,13 @@ namespace UFOStart.LinkedIn
             
             var profile = (from x in user.Profile where x.type == "LI" select x).Take(1).ToList()[0];
             accessToken = profile.accessToken;
-            need = _need.name;
+            need = String.Empty;
+            foreach (var t in _need.Tags){
+                need = String.Format("{0}{1} OR ", need, t.name);
+            }
+            need = Uri.EscapeUriString(need.Remove(need.Length - 4));
 
-            var rawContacts = Contact.getContacts(_need, accessToken);
+            var rawContacts = Contact.getContacts(need, accessToken);
             if (rawContacts == null)
                 return ;
             var contacts = (from x in rawContacts.People.Person where x.firstName != "private" select x).ToList();

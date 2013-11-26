@@ -60,14 +60,14 @@ public static class Contact
         }
     }
 
-    public static PeopleSeach getContacts(Need need, string accessToken)
+    public static PeopleSeach getContacts(string keyword, string accessToken)
     {
         try
         {
             var url =
                 string.Format(
                     "https://api.linkedin.com/v1/people-search:(people:(id,skills,relation-to-viewer,headline,first-name,last-name,specialties,summary,industry,picture-url),num-results)?keywords={0}&count=25&sort=relevance&oauth2_access_token={1}",
-                    need.name, accessToken);
+                    keyword, accessToken);
             var contacts = api.hit(url);
             if (contacts == null)
                 return null;
@@ -163,10 +163,6 @@ public static class Contact
         var contactObj = api.deserialise(xml, new Connections());
         return contactObj;
     }
-
-
-
-  
 
     }
 }

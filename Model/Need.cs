@@ -40,6 +40,8 @@ namespace Model
         public bool parttime { get; set; }
         [XmlElement]
         public Service Service { get; set; }
+        [XmlAttribute]
+        public bool edited { get; set; }
         [XmlElement]
         public List<Service> Services { get; set; }
         [XmlElement]
