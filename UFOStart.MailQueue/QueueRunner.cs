@@ -11,7 +11,7 @@ namespace UFOStart.MailQueue
         readonly Timer _timer;
         public QueueRunner()
         {
-            _timer = new Timer(3000) { AutoReset = true };
+            _timer = new Timer(10000) { AutoReset = true };
             _timer.Elapsed += (sender, eventArgs) => process();
         }
         public void start() { _timer.Start(); }

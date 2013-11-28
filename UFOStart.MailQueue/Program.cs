@@ -17,8 +17,8 @@ namespace UFOStart.MailQueue
             Config.Instance.apiKey = @"GA51IwlzRHKI7fv1hd0x1Q";
             Config.Instance.dbConn = Globals.Instance.settings["MailQueueConnectionString"];
             Config.Instance.replyTo = @"support@ufostart.com";
-            Config.Instance.fromEmail = @"support@ufostart.com";
-            Config.Instance.fromName = @"UFO Start";
+           // Config.Instance.fromEmail = @"support@ufostart.com";
+            //Config.Instance.fromName = @"UFO Start";
 
             HostFactory.Run(x =>
             {

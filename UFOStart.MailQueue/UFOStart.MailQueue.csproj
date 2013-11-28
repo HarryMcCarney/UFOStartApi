@@ -42,9 +42,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\HackandCraft.Config.1.0.76\lib\net45\HackandCraft.DBVC.dll</HintPath>
     </Reference>
-    <Reference Include="HackandCraft.Mail">
-      <HintPath>..\packages\HackandCraft.Mail.1.0.76\lib\net45\HackandCraft.Mail.dll</HintPath>
-    </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\HackandCraft.Mail.1.0.76\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -73,6 +70,12 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\HackandCraft\HackandCraft\HackandCraft.Mail\HackandCraft.Mail.csproj">
+      <Project>{1086ddb1-2d6e-42ef-98f3-8aa4912198e9}</Project>
+      <Name>HackandCraft.Mail</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
