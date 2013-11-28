@@ -99,11 +99,16 @@ namespace UFOStart.Api.Controllers.Web
                     {
                         var token = Guid.NewGuid().ToString();
                         invite.inviteToken = token;
-                        invite.Need.name = round.Needs[0].name;
+                        invite.Need = new Need { slug = myresult.Need.slug };
                         result = orm.execObject<Result>(invite, "api.company_invite");
-                        var link = string.Format("{0}{1}{2}", Globals.Instance.settings["RootUrl"],
-                                                 Globals.Instance.settings["CompanyInvite"], invite.inviteToken);
-                        Mail.enqueue(new InviteNeedEmail(invite.email, invite.name, invite.invitorName, invite.Need.name, myresult.Company.name, link));
+
+                        var invResult = (Result)result;
+                        if (invResult.Invite != null)
+                        {
+                            var link = string.Format("{0}{1}{2}", Globals.Instance.settings["RootUrl"],
+                                                     Globals.Instance.settings["CompanyInvite"], invite.inviteToken);
+                            Mail.enqueue(new InviteNeedEmail(invite.email, invResult.Invite.name, invResult.Invite.invitorName, invResult.Invite.Need.name, invResult.Invite.companyName, link));
+                        }
                     }
                 }
             }
@@ -129,12 +134,17 @@ namespace UFOStart.Api.Controllers.Web
                     {
                         var token = Guid.NewGuid().ToString();
                         invite.inviteToken = token;
-                        invite.Need.name = round.Needs[0].name;
+                        invite.Need = new Need { slug = myresult.Need.slug };
                         result = orm.execObject<Result>(invite, "api.company_invite");
-                        var link = string.Format("{0}{1}{2}", Globals.Instance.settings["RootUrl"],
-                                                 Globals.Instance.settings["CompanyInvite"], invite.inviteToken);
-                        Mail.enqueue(new InviteNeedEmail(invite.email, invite.name, invite.invitorName, invite.Need.name, myresult.Company.name, link));
-                    }
+                       
+                        var invResult = (Result)result;
+                        if (invResult.Invite != null)
+                        {
+                            var link = string.Format("{0}{1}{2}", Globals.Instance.settings["RootUrl"],
+                                                     Globals.Instance.settings["CompanyInvite"], invite.inviteToken);
+                            Mail.enqueue(new InviteNeedEmail(invite.email, invResult.Invite.name, invResult.Invite.invitorName, invResult.Invite.Need.name, invResult.Invite.companyName, link));
+                        }
+                   }
                 }
             }
             catch (Exception exp)
