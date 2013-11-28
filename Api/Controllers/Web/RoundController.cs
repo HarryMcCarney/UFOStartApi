@@ -99,10 +99,11 @@ namespace UFOStart.Api.Controllers.Web
                     {
                         var token = Guid.NewGuid().ToString();
                         invite.inviteToken = token;
+                        invite.Need.name = round.Needs[0].name;
                         result = orm.execObject<Result>(invite, "api.company_invite");
                         var link = string.Format("{0}{1}{2}", Globals.Instance.settings["RootUrl"],
                                                  Globals.Instance.settings["CompanyInvite"], invite.inviteToken);
-                        Mail.enqueue(new CompanyInviteEmail(invite.email, invite.name, invite.invitorName, link));
+                        Mail.enqueue(new InviteNeedEmail(invite.email, invite.name, invite.invitorName, invite.Need.name, myresult.Company.name, link));
                     }
                 }
             }
@@ -128,10 +129,11 @@ namespace UFOStart.Api.Controllers.Web
                     {
                         var token = Guid.NewGuid().ToString();
                         invite.inviteToken = token;
+                        invite.Need.name = round.Needs[0].name;
                         result = orm.execObject<Result>(invite, "api.company_invite");
                         var link = string.Format("{0}{1}{2}", Globals.Instance.settings["RootUrl"],
                                                  Globals.Instance.settings["CompanyInvite"], invite.inviteToken);
-                        Mail.enqueue(new CompanyInviteEmail(invite.email, invite.name, invite.invitorName, link));
+                        Mail.enqueue(new InviteNeedEmail(invite.email, invite.name, invite.invitorName, invite.Need.name, myresult.Company.name, link));
                     }
                 }
             }
