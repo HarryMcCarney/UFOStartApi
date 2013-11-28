@@ -40,17 +40,18 @@
     </Reference>
     <Reference Include="HackandCraft.DBVC, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\HackandCraft.Config.1.0.76\lib\net45\HackandCraft.DBVC.dll</HintPath>
+      <HintPath>..\packages\HackandCraft.Mail.1.0.81\lib\net40\HackandCraft.DBVC.dll</HintPath>
     </Reference>
-    <Reference Include="HackandCraft.Mail, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="HackandCraft.Mail">
+      <HintPath>..\packages\HackandCraft.Mail.1.0.81\lib\net45\HackandCraft.Mail.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\Expaway\Code\packages\HackandCraft.Mail.1.0.79\lib\net45\HackandCraft.Mail.dll</HintPath>
+      <HintPath>..\packages\HackandCraft.Mail.1.0.81\lib\net40\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\HackandCraft.Mail.1.0.76\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="NLog">
-      <HintPath>..\packages\HackandCraft.Mail.1.0.76\lib\net45\NLog.dll</HintPath>
+    <Reference Include="NLog, Version=2.0.1.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\HackandCraft.Mail.1.0.81\lib\net40\NLog.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
