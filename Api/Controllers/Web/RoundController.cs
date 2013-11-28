@@ -93,24 +93,7 @@ namespace UFOStart.Api.Controllers.Web
                // new FulfilRound(myresult.Round).fulfil();
                 new Task(() => new FulfilRound(myresult.Round).fulfil()).Start();
                 orm.execObject<Result>(round, "api.find_experts_contacts");
-                if (round.Invite != null)
-                {
-                    foreach (var invite in round.Invite)
-                    {
-                        var token = Guid.NewGuid().ToString();
-                        invite.inviteToken = token;
-                        invite.Need = new Need { slug = myresult.Need.slug };
-                        result = orm.execObject<Result>(invite, "api.company_invite");
-
-                        var invResult = (Result)result;
-                        if (invResult.Invite != null)
-                        {
-                            var link = string.Format("{0}{1}{2}", Globals.Instance.settings["RootUrl"],
-                                                     Globals.Instance.settings["CompanyInvite"], invite.inviteToken);
-                            Mail.enqueue(new InviteNeedEmail(invite.email, invResult.Invite.name, invResult.Invite.invitorName, invResult.Invite.Need.name, invResult.Invite.companyName, link));
-                        }
-                    }
-                }
+              
             }
             catch (Exception exp)
             {
@@ -128,24 +111,6 @@ namespace UFOStart.Api.Controllers.Web
                 new Task(() => new FulfilRound(myresult.Round).fulfil()).Start();
                 orm.execObject<Result>(round, "api.find_experts_contacts");
 
-                if (round.Invite != null)
-                {
-                    foreach (var invite in round.Invite)
-                    {
-                        var token = Guid.NewGuid().ToString();
-                        invite.inviteToken = token;
-                        invite.Need = new Need { slug = myresult.Need.slug };
-                        result = orm.execObject<Result>(invite, "api.company_invite");
-                       
-                        var invResult = (Result)result;
-                        if (invResult.Invite != null)
-                        {
-                            var link = string.Format("{0}{1}{2}", Globals.Instance.settings["RootUrl"],
-                                                     Globals.Instance.settings["CompanyInvite"], invite.inviteToken);
-                            Mail.enqueue(new InviteNeedEmail(invite.email, invResult.Invite.name, invResult.Invite.invitorName, invResult.Invite.Need.name, invResult.Invite.companyName, link));
-                        }
-                   }
-                }
             }
             catch (Exception exp)
             {
@@ -161,6 +126,33 @@ namespace UFOStart.Api.Controllers.Web
             {
                 result = orm.execObject<Result>(round, "api.round_need_add");
             }
+            catch (Exception exp)
+            {
+                errorResult(exp);
+            }
+            return formattedResult(result);
+        }
+
+
+
+        public string needInvite(Invite invite)
+        {
+            try
+            {
+                invite.inviteToken = Guid.NewGuid().ToString();
+                result = orm.execObject<Result>(invite, "api.company_invite");
+
+                if (result.errorMessage == null)
+                {
+                    var invResult = result as Result;
+                
+                var link = string.Format("{0}{1}{2}", Globals.Instance.settings["RootUrl"],
+                                         Globals.Instance.settings["CompanyInvite"], invite.inviteToken);
+                Mail.enqueue(new InviteNeedEmail(invite.email, invResult.Invite.name, invResult.Invite.invitorName,
+                                                 invResult.Invite.Need.name, invResult.Invite.companyName, link));
+
+                    }
+              }
             catch (Exception exp)
             {
                 errorResult(exp);
