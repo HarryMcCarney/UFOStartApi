@@ -138,7 +138,7 @@ namespace UFOStart.Api.Controllers.Web
         public string needInvite(Invite invite)
         {
             try
-            {
+            {// some coment
                 invite.inviteToken = Guid.NewGuid().ToString();
                 result = orm.execObject<Result>(invite, "api.company_invite");
 
