@@ -148,7 +148,7 @@ namespace UFOStart.Api.Controllers.Web
                 
                 var link = string.Format("{0}{1}{2}", Globals.Instance.settings["RootUrl"],
                                          Globals.Instance.settings["CompanyInvite"], invite.inviteToken);
-                Mail.enqueue(new InviteNeedEmail(invite.email, invResult.Invite.name, invResult.Invite.invitorName,
+                Mail.enqueue(new AdvisorInviteEmail(invite.email, invResult.Invite.name, invResult.Invite.invitorName,
                                                  invResult.Invite.Need.name, invResult.Invite.companyName, link));
 
                     }

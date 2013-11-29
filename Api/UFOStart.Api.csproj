@@ -153,6 +153,7 @@
     <Compile Include="Services\Messaging\CompanyInviteEmail.cs" />
     <Compile Include="Services\Messaging\ApplicationFounderEmail.cs" />
     <Compile Include="Services\Messaging\ApplicationAcceptedEmail.cs" />
+    <Compile Include="Services\Messaging\AdvisorInviteEmail.cs" />
     <Compile Include="Services\Messaging\InviteNeedEmail.cs" />
     <Compile Include="Services\Messaging\MentorApproveEmail.cs" />
     <Compile Include="Services\Messaging\MessageHelpers.cs" />
