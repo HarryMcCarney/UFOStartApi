@@ -142,9 +142,10 @@ namespace UFOStart.Api.Controllers.Web
                 invite.inviteToken = Guid.NewGuid().ToString();
                 result = orm.execObject<Result>(invite, "api.company_invite");
 
-                if (result.errorMessage == null)
+                var invResult = result as Result;
+                if (invResult.errorMessage == null && invResult.Invite != null)
                 {
-                    var invResult = result as Result;
+                    
                 
                 var link = string.Format("{0}{1}{2}", Globals.Instance.settings["RootUrl"],
                                          Globals.Instance.settings["CompanyInvite"], invite.inviteToken);
