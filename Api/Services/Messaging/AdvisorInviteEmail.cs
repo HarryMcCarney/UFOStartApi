@@ -25,15 +25,13 @@ namespace UFOStart.Api.Services.Messaging
             company = _company;
             needLink = _needLink;
             invitorName = _invitorName;
-
-
-
             template = "advisorinvite";
             id = Guid.NewGuid().ToString();
             type = "EMAIL";
          
         }
 
+        
 
 
 

@@ -18,6 +18,7 @@ public static class Contact
     public static string getPicture(string id, string accessToken)
     {
         log.Warn("calling getPicture");
+        if (id == "private") return null;
         var url =
             string.Format(
                 "https://api.linkedin.com/v1/people/id={0}:(id,headline,first-name,last-name,specialties,summary,industry,picture-url)?oauth2_access_token={1}", id, accessToken);
@@ -32,6 +33,7 @@ public static class Contact
     public static List<string> getSkils(string id, string accessToken)
     {
         log.Warn("calling getSkils");
+        if (id == "private") return null;
         var url =
             string.Format(
                 "https://api.linkedin.com/v1/people/id={0}:(id,skills)?oauth2_access_token={1}", id, accessToken);
@@ -48,6 +50,7 @@ public static class Contact
         try
         {
             log.Warn("calling getHeadline");
+            if (id == "private") return null;
             var url =
                 string.Format(
                     "https://api.linkedin.com/v1/people/id={0}:(id,headline)?oauth2_access_token={1}", id, accessToken);
@@ -116,6 +119,7 @@ public static class Contact
         try
         {
             log.Warn("calling getInterest");
+            if (id == "private") return null;
             var url =
                 string.Format(
                     "https://api.linkedin.com/v1/people/id={0}:(id,interests)?oauth2_access_token={1}", id, accessToken);
@@ -139,6 +143,7 @@ public static class Contact
         try
         {
             log.Warn("calling getPerson");
+            if (id == "private") return null;
             var url =
                 string.Format(
                     "https://api.linkedin.com/v1/people/id={0}:(id,headline,connections,positions,interests,skills,first-name,last-name,specialties,summary,industry,picture-url,relation-to-viewer:(related-connections))?oauth2_access_token={1}", id, accessToken);
@@ -161,6 +166,8 @@ public static class Contact
     {
 
         log.Warn("calling getConnections");
+        if (id == "private") return null;
+        
         var url =
             string.Format(
                 "https://api.linkedin.com/v1/people/{0}/connections:(id)?oauth2_access_token={1}", id, accessToken);
