@@ -30,7 +30,7 @@ namespace LinkedIn
             try
             {
 
-                log.Warn("calling user_connections_save: " + endpoint);
+                log.Info("hitting linkedin with: " + endpoint);
                 var webClient = new WebClient();
                 webClient.Encoding = Encoding.UTF8;
                 return webClient.DownloadString(endpoint);
