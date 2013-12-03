@@ -31,7 +31,7 @@ namespace UFOStart.LinkedIn
             var profile = (from x in user.Profile where x.type == "LI" select x).Take(1).ToList()[0];
             accessToken = profile.accessToken;
             need = String.Empty;
-            foreach (var t in _need.Tags){
+            foreach (var t in _need.Tags.Take(5)){
                 need = String.Format("{0}{1} OR ", need, t.name);
             }
             need = Uri.EscapeDataString(need.Remove(need.Length - 4));
