@@ -30,12 +30,19 @@ namespace UFOStart.LinkedIn
             
             var profile = (from x in user.Profile where x.type == "LI" select x).Take(1).ToList()[0];
             accessToken = profile.accessToken;
-            need = String.Empty;
+            need = _need.name + " OR ";
+
+            var listTags = (from x in _need.Tags.Take(5) select x.ToString()).ToList();
+            var urlTags = _need.name + " OR "  + String.Join(" OR ", listTags.ToArray());
+
+            need = Uri.EscapeDataString(urlTags);
+
+            /*
             foreach (var t in _need.Tags.Take(5)){
                 need = String.Format("{0}{1} OR ", need, t.name);
             }
             need = Uri.EscapeDataString(need.Remove(need.Length - 4));
-            
+            */
             var rawContacts = Contact.getContacts(need, accessToken);
             if (rawContacts == null)
                 return ;
